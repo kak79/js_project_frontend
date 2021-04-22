@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JS Fetch</title>
+
+    <!-- CSS & Styling -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+
+    <!-- External Scripts -->
+    <script defer src="scripts/index.js" charset="utf-8"></script>
+    <script defer src="scripts/ingredient.js" charset="utf-8"></script>
+    <script defer src="scripts/recipe.js" charset="utf-8"></script>
+
+  </head>
+  <body>
+
+    <!-- Form that may have a few errors at first... -->
+
+
+    <form id="add-ingredient-form">
+      <label for="add-ingredient-title">Choose Recipe and Add An Ingredient:</label><br>
+
+      Recipe Title: &nbsp; <input id=""  >
+
+      Recipe Ingredient: &nbsp; <input id="text-field" name="ingredient" type="text" placeholder="ingredient">
+      <br>
+      Measurement for Ingredient: &nbsp; <input id="text-field" name="measurement" type="text" placeholder="measurement">
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <!-- Div of Recipes -->
+    <div id="new-recipe-form">
+      
+    </div>
+
+    <div id="recipes-container">
+
+    </div>
+
+  </body>
+</html>
