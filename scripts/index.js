@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded" , () => {
-  mkNwRcpFrm()
+  makeNewRecipeForm()
+  addNewIngredientsForm()
   fetchRecipe()
 })
 
@@ -29,7 +30,7 @@ function fetchRecipe() {
 //once form is submitted => fetch 'post' to my backend
 //do something with the returned object
 
-function mkNwRcpFrm() {
+function makeNewRecipeForm() {
   let newRecipeDiv = document.getElementById("new-recipe-form") 
 
   newRecipeDiv.innerHTML +=
@@ -37,11 +38,11 @@ function mkNwRcpFrm() {
   `
     <form>
       <label>Add A Recipe: </label><br>
-      Recipe Title: &nbsp; <input type="text" id="title">
+      Recipe Title: &nbsp; <input type="text" id="title" placeholder="Title">
       <br>
-      Recipe Instructions: &nbsp; <input type="text" id="instructions">
+      Recipe Instructions: &nbsp; <input type="text" id="instructions" placeholder="Instructions">
       <br>
-      <input type="submit" value="Create Recipe">
+      &nbsp;<input type="submit" value="Create Recipe">
     </form><br>
   `
 
@@ -78,6 +79,25 @@ function formSubmit() {
 
 }
 
+function addNewIngredientsForm() {
+  let newRecipeDiv = document.getElementById("add-ingredient-form") 
+
+  newRecipeDiv.innerHTML +=
+
+  `
+    <form>
+      <label>Choose Recipe and Add An Ingredient:</label><br>
+
+      Recipe Title: &nbsp; <input id=""  >
+      <br>
+      Recipe Ingredient: &nbsp; <input id="text-field" name="ingredient" type="text" placeholder="ingredient">
+      <br>
+      Measurement for Ingredient: &nbsp; <input id="text-field" name="measurement" type="text" placeholder="measurement">
+      <br>
+      <input type="submit" value="Add Ingredient">
+    </form>
+  `
+  }
 
 //UPDATE -- edit a recipe -- stretch goal
 
