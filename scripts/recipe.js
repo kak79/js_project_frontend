@@ -14,10 +14,14 @@ class Recipe{
     recipeDiv.innerHTML +=
 
     `
+    <br>
     <ul>
     <h4>Recipe Title: ${this.title}</h4>
     <li>Instructions: ${this.instructions}</li>
     </ul>
+    <br>
+    &nbsp;<button class="delete-button" data-id="${this.id}">Delete Recipe</button>
+    <br>
     `
   }
 }
