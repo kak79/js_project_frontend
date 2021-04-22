@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded" , () => {
 
 const BASE_URL = "http://127.0.0.1:3000"
 
-//READ -- fetch a recipe by title
+//READ -- fetch a recipe
 
 function fetchRecipe() {
   fetch(`${BASE_URL}/recipes`)
