@@ -23,6 +23,10 @@ function fetchRecipe() {
   })
 }
 
+//READ -- fetch a ingredients by recipe id
+
+
+
 //CREATE -- add a new recipe 
 
 //create a form
@@ -79,6 +83,13 @@ function formSubmit() {
 
 }
 
+//CREATE -- add a new ingredients to a recipe 
+
+//create a form
+//add and event listener
+//once form is submitted => fetch 'post' to my backend
+//do something with the returned object
+
 function addNewIngredientsForm() {
   let newRecipeDiv = document.getElementById("add-ingredient-form") 
 
@@ -101,4 +112,6 @@ function addNewIngredientsForm() {
 
 //UPDATE -- edit a recipe -- stretch goal
 
-//DELETE -- delete a recipe
+//UPDATE -- edit recipe ingredients -- stretch goal
+
+//DELETE -- delete a recipe and its associated ingredients
