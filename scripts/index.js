@@ -74,7 +74,7 @@ function formSubmit() {
   .then(recipes => {
       let r = new Recipe(recipe.id, recipe.title, recipe.instructions)
       r.renderRecipe();
-    }
+    })
 
 }
 
