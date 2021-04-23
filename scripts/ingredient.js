@@ -9,12 +9,12 @@ class Ingredient{
 
   //instance method that renders the object to the DOM
 
-  renderRecipe() {
-    let ingredientDiv = document.getElementById("ingredients-container")
-
-    ingredientDiv.innerHTML +=
-
-    `
+  // take in an argument of ingredient
+  renderIngredient() {
+    let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement, ingredient.recipe_id)
+    let ingredientDiv = document.createElement('div')
+    ingredientDiv.className = "ingredient-container"
+    ingredientDiv.innerHTML += `
     <br>
     <ul>
     <h4>Ingredient Name: ${this.name}</h4>
@@ -25,5 +25,7 @@ class Ingredient{
     <br>
     `
   }
-}
 
+  // create renderIngredients function -- take in an ingredients argument
+  // call renderIngredient(ingredient) within this function
+}

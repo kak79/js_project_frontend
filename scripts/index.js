@@ -36,7 +36,9 @@ function fetchIngredient() {
       // console.log('rails object', ingredient)
       let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement, ingredient.recipe_id)
       // console.log('js object', i)
-      i.renderIngredient();
+      // create ingredient div
+      // give data-id 
+      // i.renderIngredient();
     }
   })
 }
@@ -105,14 +107,13 @@ function formSubmit() {
 //do something with the returned object
 
 function addNewIngredientsForm() {
-  let addIngredient = document.getElementById("add-ingredient-form") 
+  let ingredientDiv = document.getElementById("add-ingredient-form") 
 
-  addIngredient.innerHTML +=
+  ingredientDiv.innerHTML +=
 
   `
     <form>
       <label>Choose Recipe and Add An Ingredient:</label><br>
-
       Recipe Title: &nbsp; <input id=""  >
       <br>
       Recipe Ingredient: &nbsp; <input id="text-field" name="ingredient" type="text" placeholder="ingredient">
@@ -122,7 +123,7 @@ function addNewIngredientsForm() {
       <input type="submit" value="Add Ingredient">
     </form>
   `
-  addIngredient.addEventListener("submit", formSubmit)
+  ingredientDiv.addEventListener("submit", formSubmit)
 
   }
 
@@ -158,14 +159,3 @@ function addNewIngredientsForm() {
 //UPDATE -- edit a recipe -- stretch goal
 
 //UPDATE -- edit recipe ingredients -- stretch goal
-
-//DELETE -- delete a recipe and its associated ingredients
-
-let buttons = document.getElementsByClassName("del-bttn")
-// console.log(buttons)
-
-for (const button of buttons) {
-  button.addEventListener("click", () => {
-    debugger;
-  })
-}
