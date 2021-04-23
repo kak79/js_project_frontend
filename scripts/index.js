@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded" , () => {
   makeNewRecipeForm()
   addNewIngredientsForm()
   fetchRecipe()
+  fetchIngredient()
 })
 
 const BASE_URL = "http://127.0.0.1:3000"
@@ -25,7 +26,20 @@ function fetchRecipe() {
 
 //READ -- fetch a ingredients by recipe id
 
-
+function fetchIngredient() {
+  fetch(`${BASE_URL}/ingredients`)
+  .then(resp => resp.json())
+  .then(ingredients => {
+    //console.log(ingredients)
+    //turn this data into a javascript object
+    for( const ingredient of ingredients) {
+      // console.log('rails object', ingredient)
+      let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement, ingredient.recipe_id)
+      // console.log('js object', i)
+      i.renderIngredient();
+    }
+  })
+}
 
 //CREATE -- add a new recipe 
 
@@ -115,3 +129,12 @@ function addNewIngredientsForm() {
 //UPDATE -- edit recipe ingredients -- stretch goal
 
 //DELETE -- delete a recipe and its associated ingredients
+
+let buttons = document.getElementsByClassName("del-bttn")
+// console.log(buttons)
+
+for (const button of buttons) {
+  button.addEventListener("click", () => {
+    debugger;
+  })
+}
