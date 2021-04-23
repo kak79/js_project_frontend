@@ -11,9 +11,15 @@ class Ingredient{
 
   // take in an argument of ingredient
   renderIngredient() {
+    debugger
+
+    // query select for recipeCard with a certain id that matches ingredient's recipe id
+
+      //make this in fetch request
     let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement, ingredient.recipe_id)
-    let ingredientDiv = document.createElement('div')
-    ingredientDiv.className = "ingredient-container"
+
+    // let ingredientDiv = recipeCard # .getElementsByClassName("ingredient-container")
+    // console.log(ingredientDiv)
     ingredientDiv.innerHTML += `
     <br>
     <ul>
