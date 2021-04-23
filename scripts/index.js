@@ -105,9 +105,9 @@ function formSubmit() {
 //do something with the returned object
 
 function addNewIngredientsForm() {
-  let newRecipeDiv = document.getElementById("add-ingredient-form") 
+  let addIngredient = document.getElementById("add-ingredient-form") 
 
-  newRecipeDiv.innerHTML +=
+  addIngredient.innerHTML +=
 
   `
     <form>
@@ -122,7 +122,38 @@ function addNewIngredientsForm() {
       <input type="submit" value="Add Ingredient">
     </form>
   `
+  addIngredient.addEventListener("submit", formSubmit)
+
   }
+
+  function formSubmit() {
+    event.preventDefault()
+    let title = document.getElementById("name").value
+    let instructions = document.getElementById("measurement").value
+  
+    console.log(name, measurement)
+  
+    // let ingredient = {
+    //   name: name,
+    //   measurement: measurement
+    // }
+  
+    // fetch(`${BASE_URL}/ingredients`, {
+    //   method: 'POST',
+    //   headers: {
+    //       'Accept': 'application/json',
+    //       'Content-Type': 'application/json'
+    //     },
+    //   body: JSON.stringify(ingredient)  
+    // })
+    // .then(resp => console.log(resp))
+  //   .then(resp => resp.json())
+  //   .then(ingredients => {
+  //       let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement, ingredient.recipe_id)
+  //       r.renderIngredient();
+  //     })
+  }
+ 
 
 //UPDATE -- edit a recipe -- stretch goal
 
