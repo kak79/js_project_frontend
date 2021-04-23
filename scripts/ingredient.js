@@ -1,7 +1,9 @@
 class Ingredient{
-  constructor(name, measurement){
+  constructor(id, name, measurement, recipe_id){
+    this.id = id;
     this.name = name;
     this.measurement = measurement; 
+    this.recipe_id = recipe_id;
   }
 
 
@@ -19,7 +21,7 @@ class Ingredient{
     <li>Ingredient Measurement: ${this.measurement}</li>
     </ul>
     <br>
-    &nbsp;<button class="delete-button" data-id="${this.id}">Delete Recipe</button>
+    &nbsp;<button class="delete-button" data-id="${this.id}">Delete Ingredient</button>
     <br>
     `
   }
