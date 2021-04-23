@@ -96,11 +96,6 @@ function formSubmit() {
 function addNewIngredientsForm() {
   let ingredientDiv = document.getElementById("add-ingredient-form") 
 
-  ingredientDiv.innerHTML +=
-
-  `
-
-  `
   ingredientDiv.addEventListener("submit", formSubmit)
 
   }
