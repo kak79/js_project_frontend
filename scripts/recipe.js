@@ -20,7 +20,7 @@ class Recipe{
     <li>Instructions: ${this.instructions}</li>
     </ul>
     <br>
-    &nbsp;<button class="delete-button" data-id="${this.id}">Delete Recipe</button>
+    &nbsp;<button class="del-bttn" data-id="${this.id}">Delete Recipe</button>
     <br>
     `
   }
