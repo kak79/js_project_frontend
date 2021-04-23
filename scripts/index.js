@@ -53,19 +53,6 @@ function fetchIngredient() {
 function makeNewRecipeForm() {
   let newRecipeDiv = document.getElementById("new-recipe-form") 
 
-  newRecipeDiv.innerHTML +=
-
-  `
-    <form>
-      <label>Add A Recipe: </label><br>
-      Recipe Title: &nbsp; <input type="text" id="title" placeholder="Title">
-      <br>
-      Recipe Instructions: &nbsp; <input type="text" id="instructions" placeholder="Instructions">
-      <br>
-      &nbsp;<input type="submit" value="Create Recipe">
-    </form><br>
-  `
-
   newRecipeDiv.addEventListener("submit", formSubmit)
 
 }
@@ -112,16 +99,7 @@ function addNewIngredientsForm() {
   ingredientDiv.innerHTML +=
 
   `
-    <form>
-      <label>Choose Recipe and Add An Ingredient:</label><br>
-      Recipe Title: &nbsp; <input id=""  >
-      <br>
-      Recipe Ingredient: &nbsp; <input id="text-field" name="ingredient" type="text" placeholder="ingredient">
-      <br>
-      Measurement for Ingredient: &nbsp; <input id="text-field" name="measurement" type="text" placeholder="measurement">
-      <br>
-      <input type="submit" value="Add Ingredient">
-    </form>
+
   `
   ingredientDiv.addEventListener("submit", formSubmit)
 

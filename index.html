@@ -17,12 +17,26 @@
   <body>
 
     <div id="new-recipe-form">
-      
+      <form>
+        <label>Add A Recipe: </label><br>
+        Recipe Title: &nbsp; <input type="text" id="title" placeholder="Title">
+        <div id="add-ingredient-form"><br>
+          <form>
+            <label>Add An Ingredient:</label><br>
+            Recipe Ingredient: &nbsp; <input id="text-field" name="ingredient" type="text" placeholder="ingredient">
+            <br>
+            Measurement for Ingredient: &nbsp; <input id="text-field" name="measurement" type="text" placeholder="measurement">
+            <br>
+            <input type="submit" value="Add Ingredient">
+          </form>
+        </div>
+        Recipe Instructions: &nbsp; <input type="text" id="instructions" placeholder="Instructions">
+        <br>
+        &nbsp;<input type="submit" value="Create Recipe">
+      </form><br>      
     </div>
 
-    <div id="add-ingredient-form">
 
-    </div>
 
     <div id="recipes-container">
 
