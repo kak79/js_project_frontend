@@ -2,12 +2,12 @@ document.addEventListener("DOMContentLoaded" , () => {
   makeNewRecipeForm()
   addNewIngredientsForm()
   fetchRecipe()
-  fetchIngredient()
 })
 
 const BASE_URL = "http://127.0.0.1:3000"
 
 //READ -- fetch a recipe
+//READ -- fetch each ingredient
 
 function fetchRecipe() {
   fetch(`${BASE_URL}/recipes`)
@@ -24,25 +24,32 @@ function fetchRecipe() {
   })
 }
 
-//READ -- fetch a ingredients by recipe id
-
 function fetchIngredient() {
+  fetch(`${BASE_URL}/recipes`)
+  .then(resp => resp.json())
+  .then(recipes => {
+    for( const recipe of recipes) {
+      let r = new Recipe(recipe.id, recipe.title, recipe.instructions)
+      r.renderRecipe();
+    }
+  })
+
   fetch(`${BASE_URL}/ingredients`)
   .then(resp => resp.json())
   .then(ingredients => {
-    //console.log(ingredients)
-    //turn this data into a javascript object
     for( const ingredient of ingredients) {
-      // console.log('rails object', ingredient)
       let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement, ingredient.recipe_id)
-      console.log('js object', i)
       // create ingredient div
       // give data-id 
-      debugger
-      i.renderIngredient(i);
+      
+      i.renderIngredient(i,r);
     }
   })
 }
+
+
+
+
 
 //CREATE -- add a new recipe 
 
