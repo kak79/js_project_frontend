@@ -33,12 +33,13 @@ function fetchIngredient() {
     //console.log(ingredients)
     //turn this data into a javascript object
     for( const ingredient of ingredients) {
-      console.log('rails object', ingredient)
+      // console.log('rails object', ingredient)
       let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement, ingredient.recipe_id)
       console.log('js object', i)
       // create ingredient div
       // give data-id 
-      // i.renderIngredient();
+      debugger
+      i.renderIngredient(i);
     }
   })
 }

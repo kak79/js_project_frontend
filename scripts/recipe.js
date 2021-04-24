@@ -13,6 +13,7 @@ class Recipe{ // add ingredients to constructor (ingredient_ids)
     // creating a new div element 
     let recipeCard = document.createElement('div')
     recipeCard.id = `recipe-${this.id}`
+    recipeCard.className = "recipe-card"
 
     // we might want to create elements to append here rather than using innerHTML - asking friend who does JS assessments
 
@@ -25,12 +26,12 @@ class Recipe{ // add ingredients to constructor (ingredient_ids)
     <br>
     <ul>
     <h4>Recipe Title: ${this.title}</h4>
+
     <div class="ingredient-container">
 
     </div>
     
     <li>Instructions: ${this.instructions}</li>
-    <!-- display ingredients here -->
     </ul>
     `
     recipeCard.appendChild(button);

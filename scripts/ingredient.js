@@ -10,13 +10,13 @@ class Ingredient{
   //instance method that renders the object to the DOM
 
   // take in an argument of ingredient
-  renderIngredient() {
+  renderIngredient(i) {
     debugger
 
     // query select for recipeCard with a certain id that matches ingredient's recipe id
-
-      //make this in fetch request
-    let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement, ingredient.recipe_id)
+    
+  
+    
 
     // let ingredientDiv = recipeCard # .getElementsByClassName("ingredient-container")
     // console.log(ingredientDiv)
