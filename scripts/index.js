@@ -140,3 +140,14 @@ function addNewIngredientsForm() {
 //UPDATE -- edit a recipe -- stretch goal
 
 //UPDATE -- edit recipe ingredients -- stretch goal
+
+
+//DELETE
+
+function deleteRecipe() {
+  let recipeId = parseInt(event.target.dataset.id)
+
+  fetch(`${BASE_URL}/recipes/${recipeId}`, {
+    method: 'DELETE'
+  })
+}
