@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded" , () => {
 const BASE_URL = "http://127.0.0.1:3000"
 
 //READ -- fetch a recipe
-//READ -- fetch each ingredient
 
 function fetchRecipe() {
   fetch(`${BASE_URL}/recipes`)
@@ -25,28 +24,22 @@ function fetchRecipe() {
   })
 }
 
+//READ -- fetch each ingredient
+
 function fetchIngredient() {
-  fetch(`${BASE_URL}/recipes`)
+
+  fetch(`${BASE_URL}/ingredients`)
   .then(resp => resp.json())
-  .then(recipes => {
-    for( const recipe of recipes) {
-      let r = new Recipe(recipe.id, recipe.title, recipe.instructions)
-    
-      fetch(`${BASE_URL}/ingredients`)
-      .then(resp => resp.json())
-      .then(ingredients => {
-        for( const ingredient of ingredients) {
-          let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement, ingredient.recipe_id)
-          // create ingredient div
-          // give data-id 
-          
-          i.renderIngredient(i,r);
-        }
-      })
+  .then(ingredients => {
+    for( const ingredient of ingredients) {
+      let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement, ingredient.recipe_id)
+      // create ingredient div
+      // give data-id 
+      
+      i.renderIngredient(i);
     }
   })
-
-
+ 
 }
 
 

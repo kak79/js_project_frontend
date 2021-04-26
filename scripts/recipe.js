@@ -12,16 +12,10 @@ class Recipe{ // add ingredients to constructor (ingredient_ids)
     let recipeDiv = document.getElementById("recipes-container")
     // creating a new div element 
     let recipeCard = document.createElement('div')
-    recipeCard.id = `${this.id}`
+    recipeCard.id = `${this.id}-recipe`
     recipeCard.className = "recipe-card"
 
     // we might want to create elements to append here rather than using innerHTML - asking friend who does JS assessments
-
-    // let button = document.createElement('button');
-    // button.id = `del-${this.id}`
-    // button.className = "del-bttn"
-    // button.innerText = "Delete Recipe"
-    // button.onclick = 'deleteRecipe()'
 
     recipeCard.innerHTML += `
     <br>
@@ -35,16 +29,9 @@ class Recipe{ // add ingredients to constructor (ingredient_ids)
     <li>Instructions: ${this.instructions}</li>
     </ul>
     <br>
-    <button class="del-bttn" data-id="${this.id}" onclick="deleteRecipe()">Delete Recipe</button>
+    <button class="del-bttn" data-id="${this.id}-del" onclick="deleteRecipe()">Delete Recipe</button>
     `
-    // recipeCard.appendChild(button);
-    // button.addEventListener("click", e => {
-    //   console.log(e.target.parentElement)
-    //   console.log('click!')
-    //   let parent = e.target.parentElement
-    //   parent.remove();
-    // })
-
+  
     recipeDiv.appendChild(recipeCard)
   }
 }
