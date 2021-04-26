@@ -1,15 +1,14 @@
 document.addEventListener("DOMContentLoaded" , () => {
-  makeNewRecipeForm()
-  addNewIngredientsForm()
-  fetchRecipe()
-  fetchIngredient()
+
+  fetchRecipes()
+  
 })
 
 const BASE_URL = "http://127.0.0.1:3000"
 
 //READ -- fetch a recipe
 
-function fetchRecipe() {
+function fetchRecipes() {
   fetch(`${BASE_URL}/recipes`)
   .then(resp => resp.json())
   .then(recipes => {
@@ -21,12 +20,13 @@ function fetchRecipe() {
       //console.log('js object', r)
       r.renderRecipe();
     }
+    fetchIngredients()
   })
 }
 
 //READ -- fetch each ingredient
 
-function fetchIngredient() {
+function fetchIngredients() {
 
   fetch(`${BASE_URL}/ingredients`)
   .then(resp => resp.json())
@@ -35,7 +35,6 @@ function fetchIngredient() {
       let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement, ingredient.recipe_id)
       // create ingredient div
       // give data-id 
-      
       i.renderIngredient(i);
     }
   })
@@ -53,7 +52,7 @@ function fetchIngredient() {
 //once form is submitted => fetch 'post' to my backend
 //do something with the returned object
 
-function makeNewRecipeForm() {
+function makeNewRecipe() {
   let newRecipeDiv = document.getElementById("new-recipe-form") 
   // console.log(newRecipeDiv)
   newRecipeDiv.addEventListener("submit", formSubmit)
@@ -96,7 +95,7 @@ function makeNewRecipeForm() {
 //once form is submitted => fetch 'post' to my backend
 //do something with the returned object
 
-function addNewIngredientsForm() {
+function addNewIngredients() {
   let ingredientDiv = document.getElementById("add-ingredient-form") 
 
   ingredientDiv.addEventListener("submit", formSubmit)
@@ -129,8 +128,9 @@ function addNewIngredientsForm() {
   //       let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement, ingredient.recipe_id)
   //       r.renderIngredient();
   //     })
-  }
+}
  
+
 
 //UPDATE -- edit a recipe -- stretch goal
 

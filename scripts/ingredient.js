@@ -9,26 +9,20 @@ class Ingredient{
 
   //instance method that renders the object to the DOM
 
-  // take in an argument of ingredient
-  renderIngredient(i,r) {
+  // create renderIngredients function -- take in an ingredients argument
+  // call renderIngredient(ingredient) within this function
 
-    let recipeCard = document.getElementsByClassName("recipe-card")
-    recipeCard.id = `${this.id}`
+  renderIngredient(i) {
 
-    
-
-    // query select for recipeCard with a certain id that matches ingredient's recipe id
-    i.recipe_id === parseInt(recipeCard.id)
+    let recipeCard = document.getElementById(i.recipe_id)
 
     debugger
 
-    let ingredientDiv = recipeCard.id.appendChild
+    let ingredientDiv = recipeCard.appendChild(i)
   
     
+    console.log(ingredientDiv)
 
-    
-    // let ingredientDiv = recipeCard.id.getElementsByClassName("ingredient-container")
-    // console.log(ingredientDiv)
     ingredientDiv.innerHTML += `
     <br>
     <ul>
@@ -41,6 +35,4 @@ class Ingredient{
     `
   }
 
-  // create renderIngredients function -- take in an ingredients argument
-  // call renderIngredient(ingredient) within this function
 }
