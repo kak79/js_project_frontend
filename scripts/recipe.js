@@ -21,9 +21,7 @@ class Recipe{ // add ingredients to constructor (ingredient_ids)
     <br>
     <ul>
     <h4>Recipe Title: ${this.title}</h4>
-
     <div class="ingredient-container">
-
     </div>
     
     <li>Instructions: ${this.instructions}</li>

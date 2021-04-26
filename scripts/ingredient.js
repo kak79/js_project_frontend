@@ -15,14 +15,12 @@ class Ingredient{
   renderIngredient(i) {
 
     let recipeCard = document.getElementById(i.recipe_id)
+    // let ingredientDiv = document.getElementById(`ing-${i.recipe_id}`)
+    // append ingredient div to ingredient container
+    // debugger
+    let ingredientUl = recipeCard.children[1].children[1]
 
-    debugger
-
-    let ingredientDiv = recipeCard.appendChild(i)
-  
-    
-    console.log(ingredientDiv)
-
+    let ingredientDiv = document.createElement('div');
     ingredientDiv.innerHTML += `
     <br>
     <ul>
@@ -33,6 +31,8 @@ class Ingredient{
     &nbsp;<button class="delete-button" data-id="${this.id}">Delete Ingredient</button>
     <br>
     `
+
+    ingredientUl.appendChild(ingredientDiv);
   }
 
 }
