@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded" , () => {
   makeNewRecipeForm()
   addNewIngredientsForm()
   fetchRecipe()
+  fetchIngredient()
 })
 
 const BASE_URL = "http://127.0.0.1:3000"
@@ -30,21 +31,22 @@ function fetchIngredient() {
   .then(recipes => {
     for( const recipe of recipes) {
       let r = new Recipe(recipe.id, recipe.title, recipe.instructions)
-      r.renderRecipe();
+    
+      fetch(`${BASE_URL}/ingredients`)
+      .then(resp => resp.json())
+      .then(ingredients => {
+        for( const ingredient of ingredients) {
+          let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement, ingredient.recipe_id)
+          // create ingredient div
+          // give data-id 
+          
+          i.renderIngredient(i,r);
+        }
+      })
     }
   })
 
-  fetch(`${BASE_URL}/ingredients`)
-  .then(resp => resp.json())
-  .then(ingredients => {
-    for( const ingredient of ingredients) {
-      let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement, ingredient.recipe_id)
-      // create ingredient div
-      // give data-id 
-      
-      i.renderIngredient(i,r);
-    }
-  })
+
 }
 
 
@@ -60,39 +62,39 @@ function fetchIngredient() {
 
 function makeNewRecipeForm() {
   let newRecipeDiv = document.getElementById("new-recipe-form") 
-
+  // console.log(newRecipeDiv)
   newRecipeDiv.addEventListener("submit", formSubmit)
 
 }
 
-function formSubmit() {
-  event.preventDefault()
-  let title = document.getElementById("title").value
-  let instructions = document.getElementById("instructions").value
+// function formSubmit() {
+//   event.preventDefault()
+//   let title = document.getElementById("title").value
+//   let instructions = document.getElementById("instructions").value
 
   // console.log(title, instructions)
 
-  let recipe = {
-    title: title,
-    instructions: instructions
-  }
+  // let recipe = {
+  //   title: title,
+  //   instructions: instructions
+  // }
 
-  fetch(`${BASE_URL}/recipes`, {
-    method: 'POST',
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-    body: JSON.stringify(recipe)  
-  })
+  // fetch(`${BASE_URL}/recipes`, {
+  //   method: 'POST',
+  //   headers: {
+  //       'Accept': 'application/json',
+  //       'Content-Type': 'application/json'
+  //     },
+  //   body: JSON.stringify(recipe)  
+  // })
   // .then(resp => console.log(resp))
-  .then(resp => resp.json())
-  .then(recipes => {
-      let r = new Recipe(recipe.id, recipe.title, recipe.instructions)
-      r.renderRecipe();
-    })
+//   .then(resp => resp.json())
+//   .then(recipes => {
+//       let r = new Recipe(recipe.id, recipe.title, recipe.instructions)
+//       r.renderRecipe();
+//     })
 
-}
+// }
 
 //CREATE -- add a new ingredients to a recipe 
 

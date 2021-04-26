@@ -13,18 +13,21 @@ class Ingredient{
   renderIngredient(i,r) {
 
     let recipeCard = document.getElementsByClassName("recipe-card")
+    recipeCard.id = `${this.id}`
 
     
 
     // query select for recipeCard with a certain id that matches ingredient's recipe id
-    // recipeCard.id === i.recipe_id
+    i.recipe_id === parseInt(recipeCard.id)
 
-    i.recipe_id = recipeCard.querySelector(r)
+    debugger
+
+    let ingredientDiv = recipeCard.id.appendChild
   
     
 
-    // let ingredientDiv = recipeCard # .getElementsByClassName("ingredient-container")
-    let ingredientDiv = recipeCard.id.getElementsByClassName("ingredient-container")
+    
+    // let ingredientDiv = recipeCard.id.getElementsByClassName("ingredient-container")
     // console.log(ingredientDiv)
     ingredientDiv.innerHTML += `
     <br>
