@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded" , () => {
-
+  makeNewRecipe()
+  
   fetchRecipes()
+
+  
   
 })
 
@@ -21,6 +24,7 @@ function fetchRecipes() {
       r.renderRecipe();
     }
     fetchIngredients()
+    
   })
 }
 
@@ -55,38 +59,38 @@ function fetchIngredients() {
 function makeNewRecipe() {
   let newRecipeDiv = document.getElementById("new-recipe-form") 
   // console.log(newRecipeDiv)
-  newRecipeDiv.addEventListener("submit", formSubmit)
+  newRecipeDiv.addEventListener("submit", recipeFormSubmit)
 
 }
 
-// function formSubmit() {
-//   event.preventDefault()
-//   let title = document.getElementById("title").value
-//   let instructions = document.getElementById("instructions").value
+function recipeFormSubmit() {
+  event.preventDefault()
+  let title = document.getElementById("title").value
+  let instructions = document.getElementById("instructions").value
 
   // console.log(title, instructions)
 
-  // let recipe = {
-  //   title: title,
-  //   instructions: instructions
-  // }
+  let recipe = {
+    title: title,
+    instructions: instructions
+  }
 
-  // fetch(`${BASE_URL}/recipes`, {
-  //   method: 'POST',
-  //   headers: {
-  //       'Accept': 'application/json',
-  //       'Content-Type': 'application/json'
-  //     },
-  //   body: JSON.stringify(recipe)  
-  // })
+  fetch(`${BASE_URL}/recipes`, {
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    body: JSON.stringify(recipe)  
+  })
   // .then(resp => console.log(resp))
-//   .then(resp => resp.json())
-//   .then(recipes => {
-//       let r = new Recipe(recipe.id, recipe.title, recipe.instructions)
-//       r.renderRecipe();
-//     })
+  .then(resp => resp.json())
+  .then(recipes => {
+      let r = new Recipe(recipe.id, recipe.title, recipe.instructions)
+      r.renderRecipe();
+    })
 
-// }
+}
 
 //CREATE -- add a new ingredients to a recipe 
 
@@ -95,39 +99,34 @@ function makeNewRecipe() {
 //once form is submitted => fetch 'post' to my backend
 //do something with the returned object
 
-function addNewIngredients() {
-  let ingredientDiv = document.getElementById("add-ingredient-form") 
 
-  ingredientDiv.addEventListener("submit", formSubmit)
 
-  }
+function ingredientFormSubmit() {
+  event.preventDefault()
+  let name = document.getElementById("name").value
+  let measurement = document.getElementById("measurement").value
 
-  function formSubmit() {
-    event.preventDefault()
-    let title = document.getElementById("name").value
-    let instructions = document.getElementById("measurement").value
+  console.log(name, measurement)
   
-    console.log(name, measurement)
-  
-    // let ingredient = {
-    //   name: name,
-    //   measurement: measurement
-    // }
-  
-    // fetch(`${BASE_URL}/ingredients`, {
-    //   method: 'POST',
-    //   headers: {
-    //       'Accept': 'application/json',
-    //       'Content-Type': 'application/json'
-    //     },
-    //   body: JSON.stringify(ingredient)  
-    // })
-    // .then(resp => console.log(resp))
-  //   .then(resp => resp.json())
-  //   .then(ingredients => {
-  //       let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement, ingredient.recipe_id)
-  //       r.renderIngredient();
-  //     })
+  // let ingredient = {
+  //   name: name,
+  //   measurement: measurement
+  // }
+
+  // fetch(`${BASE_URL}/ingredients`, {
+  //   method: 'POST',
+  //   headers: {
+  //       'Accept': 'application/json',
+  //       'Content-Type': 'application/json'
+  //     },
+  //   body: JSON.stringify(ingredient)  
+  // })
+  // .then(resp => console.log(resp))
+//   .then(resp => resp.json())
+//   .then(ingredients => {
+//       let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement, ingredient.recipe_id)
+//       r.renderIngredient();
+//     })
 }
  
 
