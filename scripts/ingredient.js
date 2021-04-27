@@ -15,11 +15,8 @@ class Ingredient{
   renderIngredient(i) {
 
     let recipeCard = document.getElementById(i.recipe_id)
-    // let ingredientDiv = document.getElementById(`ing-${i.recipe_id}`)
     // append ingredient div to ingredient container
-    // debugger
     let ingredientUl = recipeCard.children[1].children[1]
-
     let ingredientDiv = document.createElement('div');
     ingredientDiv.innerHTML += `
     <br>
