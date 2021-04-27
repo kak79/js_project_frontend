@@ -1,10 +1,6 @@
 document.addEventListener("DOMContentLoaded" , () => {
   makeNewRecipe()
-  
   fetchRecipes()
-
-  
-  
 })
 
 const BASE_URL = "http://127.0.0.1:3000"
@@ -15,16 +11,11 @@ function fetchRecipes() {
   fetch(`${BASE_URL}/recipes`)
   .then(resp => resp.json())
   .then(recipes => {
-    //console.log(recipes)
-    //turn this data into a javascript object
     for( const recipe of recipes) {
-      //console.log('rails object', recipe)
       let r = new Recipe(recipe.id, recipe.title, recipe.instructions)
-      //console.log('js object', r)
       r.renderRecipe();
     }
     fetchIngredients()
-    
   })
 }
 
@@ -37,12 +28,9 @@ function fetchIngredients() {
   .then(ingredients => {
     for( const ingredient of ingredients) {
       let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement, ingredient.recipe_id)
-      // create ingredient div
-      // give data-id 
       i.renderIngredient(i);
     }
   })
- 
 }
 
 
@@ -51,24 +39,15 @@ function fetchIngredients() {
 
 //CREATE -- add a new recipe 
 
-//create a form
-//add and event listener
-//once form is submitted => fetch 'post' to my backend
-//do something with the returned object
-
 function makeNewRecipe() {
   let newRecipeDiv = document.getElementById("new-recipe-form") 
-  // console.log(newRecipeDiv)
   newRecipeDiv.addEventListener("submit", recipeFormSubmit)
-
 }
 
 function recipeFormSubmit() {
   event.preventDefault()
   let title = document.getElementById("title").value
   let instructions = document.getElementById("instructions").value
-
-  // console.log(title, instructions)
 
   let recipe = {
     title: title,
@@ -83,13 +62,11 @@ function recipeFormSubmit() {
       },
     body: JSON.stringify(recipe)  
   })
-  // .then(resp => console.log(resp))
   .then(resp => resp.json())
   .then(recipes => {
       let r = new Recipe(recipe.id, recipe.title, recipe.instructions)
       r.renderRecipe();
     })
-
 }
 
 //CREATE -- add a new ingredients to a recipe 
