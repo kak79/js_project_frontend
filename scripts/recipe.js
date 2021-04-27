@@ -27,9 +27,9 @@ class Recipe{ // add ingredients to constructor (ingredient_ids)
     <div class="add-ingredient-form" id="ing-${this.id}">
       <form>
         <label>Add An Ingredient to ${this.title}:</label><br>
-        Recipe Ingredient: &nbsp; <input id="text-field" name="ingredient" type="text" placeholder="ingredient">
+        Recipe Ingredient: &nbsp; <input id="name" type="text" placeholder="ingredient">
         <br>
-        Measurement for Ingredient: &nbsp; <input id="text-field" name="measurement" type="text" placeholder="measurement">
+        Measurement for Ingredient: &nbsp; <input id="measurement" type="text" placeholder="measurement">
         <br>
         <input type="submit" value="Add Ingredient">
 
@@ -54,7 +54,7 @@ class Recipe{ // add ingredients to constructor (ingredient_ids)
 
   makeNewIngredientForm() {
     let newIngredientDiv = document.getElementById(`${this.id}`).children[1].children[1]
-    console.log(newIngredientDiv)
+    // console.log(newIngredientDiv)
     newIngredientDiv.addEventListener("submit", ingredientFormSubmit)
   
   }

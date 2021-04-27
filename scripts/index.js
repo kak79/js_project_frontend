@@ -101,8 +101,9 @@ function recipeFormSubmit() {
 
 
 
-function ingredientFormSubmit() {
+function ingredientFormSubmit(event) {
   event.preventDefault()
+  // debugger
   let name = document.getElementById("name").value
   let measurement = document.getElementById("measurement").value
 
