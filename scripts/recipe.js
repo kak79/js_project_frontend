@@ -3,6 +3,29 @@ class Recipe{
     this.id = id;
     this.title = title;
     this.instructions = instructions; 
+    Recipe.allRecipes.push(this)
+  }
+
+  static allRecipes = []
+
+  static findRecipeByTitle() {
+    let title = document.getElementById("recipe-search-div")
+    title.addEventListener("submit", Recipe.findRecipeTitleSubmit)
+  }
+
+  static findRecipeTitleSubmit() {
+    event.preventDefault()
+
+    let searchString = document.getElementById("search-string")
+    let recipeTitle = Recipe.allRecipes.find(element => element.title === searchString.value)
+
+    if ( recipeTitle.title === searchString.value ) {
+      debugger
+      //hide all the other recipes or put a red box aroud the recipe
+    } else {
+      window.alert("No Recipe by that Title! Try Again!")
+    }
+
   }
 
 //READ -- fetch a recipe
@@ -16,7 +39,6 @@ class Recipe{
         r.renderRecipe();
       }
       Ingredient.fetchIngredients()
-      
     })
   }
 
@@ -88,8 +110,6 @@ class Recipe{
     `
   
     recipeDiv.appendChild(recipeCard)
-
-    
 
   }
 }
