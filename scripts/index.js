@@ -22,7 +22,6 @@ function fetchRecipes() {
 //READ -- fetch each ingredient
 
 function fetchIngredients() {
-
   fetch(`${BASE_URL}/ingredients`)
   .then(resp => resp.json())
   .then(ingredients => {
@@ -32,10 +31,6 @@ function fetchIngredients() {
     }
   })
 }
-
-
-
-
 
 //CREATE -- add a new recipe 
 
