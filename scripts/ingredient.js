@@ -6,16 +6,24 @@ class Ingredient{
     this.recipe_id = recipe_id;
   }
 
-
-  //instance method that renders the object to the DOM
-
-  // create renderIngredients function -- take in an ingredients argument
-  // call renderIngredient(ingredient) within this function
-
   renderIngredient(i) {
 
     let recipeCard = document.getElementById(i.recipe_id)
-    // append ingredient div to ingredient container
+
+    let createIngredientForm;
+    createIngredientForm.innerHTML += `
+    <div class="add-ingredient-form" id="ing-${this.id}">
+      <form>
+        <label>Add An Ingredient to ${this.title}:</label><br>
+        Recipe Ingredient: &nbsp; <input id="name" type="text" placeholder="ingredient">
+        <br>
+        Measurement for Ingredient: &nbsp; <input id="measurement" type="text" placeholder="measurement">
+        <br>
+        <input type="submit" value="Add Ingredient">
+      </form>
+    </div>
+    `
+
     let ingredientUl = recipeCard.children[1].children[1]
     let ingredientDiv = document.createElement('div');
     ingredientDiv.innerHTML += `
@@ -30,6 +38,13 @@ class Ingredient{
     `
 
     ingredientUl.appendChild(ingredientDiv);
+  }
+
+  makeNewIngredientForm() {
+    let newIngredientDiv = document.getElementById(`${this.id}`).children[1].children[1]
+    // console.log(newIngredientDiv)
+    newIngredientDiv.addEventListener("submit", ingredientFormSubmit)
+  
   }
 
 }
