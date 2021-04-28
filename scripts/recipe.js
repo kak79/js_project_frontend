@@ -15,7 +15,8 @@ class Recipe{
         let r = new Recipe(recipe.id, recipe.title, recipe.instructions)
         r.renderRecipe();
       }
-      // fetchIngredients()
+      Ingredient.fetchIngredients()
+      
     })
   }
 
@@ -87,6 +88,8 @@ class Recipe{
     `
   
     recipeDiv.appendChild(recipeCard)
+
+    
 
   }
 }
