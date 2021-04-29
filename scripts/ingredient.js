@@ -32,12 +32,12 @@ class Ingredient{
 
 
 
-  static makeNewIngredientForm() {
-  //   let newIngredientDiv = document.getElementById()
+  // static makeNewIngredientForm() {
+  //   debugger
   //   console.log(newIngredientDiv)
-  //   // newIngredientDiv.addEventListener("submit", ingredientFormSubmit)
+  //   newIngredientDiv.addEventListener("submit", ingredientFormSubmit)
   
-  }
+  // }
 
   // static ingredientFormSubmit(event) {
   //   event.preventDefault()

@@ -25,13 +25,14 @@
           <div id="titleInputHelp" class="form-help-text">Please Type the Title for your Recipe Here.</div>
         </div>
         <br>  
-        <div id="one-a">
+        <div id="one-b">
           <label for="instructionsInput" class="form-label">Recipe Instructions: &nbsp;</label>
           <textarea type="text" class="form-control" id="instructions" placeholder="Instructions" aria-describedby="instructionsInputHelp" rows="5"></textarea>
           <div id="instructionsInputHelp" class="form-help-text">Please Type the Instructions for your Recipe in Complete Sentences Here.</div>
         </div>     
         <br>
-        <button id="new-recipe-btn" type="submit" class="btn-primary" onclick="resetFunction()" value="Reset">Create Recipe</button>
+        <button id="new-recipe-btn" type="submit" class="btn-primary">Create Recipe</button>
+        <!-- onclick="resetFunction()" value="Reset"  -->
       </form><br>      
     </div>
 
@@ -39,24 +40,39 @@
 
     <div id="add-ingredient-form">
       <form>
-
-        <label>Add An Ingredient to a Recipe:</label><br>
+        <h2><label>Add An Ingredient to a Recipe:</label></h2><br>
 
         <div id="recipe-search-div">
+          
           <form id="recipe-search-form">
-            <label>Search for a Recipe Title: </label>
-            <input type="text" id="search-string" placeholder="Search for This:">
+            <div id="two-a">
+              <label for="search-for-recipe-title" class="form-label">Search for a Recipe Title: </label>
+              <input type="text" class="form-control" id="search-string" placeholder="Search for This:" aria-describedby="search-string-help">
+              <div id="search-string-help" class="form-help-text">Please Type the Title of the Recipe that you Want to Add an Ingredient to Here.</div>
+            </div>
             <br>
-            <input type="submit" value="Search">
+            <button id="search-recipe-title-btn" type="submit" class="btn-primary" >Search</button>
+            <!-- onclick="resetFunction()" value="Reset"  -->
           </form>
+
         </div>
 
         <br>
-        Recipe Ingredient: &nbsp; <input id="name" type="text" placeholder="ingredient">
+        <div id="two-b">
+          <label for="new-ingredient" class="form-label">Recipe Ingredient: &nbsp; </label>
+          <input id="name" class="form-control" type="text" placeholder="ingredient" aria-describedby="ing-name-help">
+          <div id="ing-name-help" class="form-help-text">Please Type the Name of This Ingredient.</div>
+        </div>
         <br>
-        Measurement for Ingredient: &nbsp; <input id="measurement" type="text" placeholder="measurement">
+        <div id="two-c">
+          <label for="new-ing-measurement" class="form-label">Measurement for Ingredient: &nbsp; </label>
+          <input id="measurement" class="form-control" type="text" placeholder="measurement" aria-describedby="measurement-help">
+          <div id="measurement-help" class="form-help-text">Please Type the Measurement for this Ingredient.</div>
+        </div>
         <br>
-        <input type="submit" value="Add Ingredient">
+        <button id="search-recipe-title-btn" type="submit" class="btn-primary" >Add Ingredient</button>
+        <!-- onclick="resetFunction()" value="Reset"  -->
+        
       </form>
     </div>
 
