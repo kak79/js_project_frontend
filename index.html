@@ -5,7 +5,7 @@
     <title>Recipes</title>
 
     <!-- CSS & Styling -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
 
     <!-- External Scripts -->
@@ -18,21 +18,45 @@
 
     <div id="new-recipe-form">
       <form>
-        <label>Add A Recipe: </label><br>
-        Recipe Title: &nbsp; <input type="text" id="title" placeholder="Title">
-        <br>        
-        Recipe Instructions: &nbsp; <input type="text" id="instructions" placeholder="Instructions">
+        <h2><label>Add A Recipe: </label></h2><br>
+        <div id="one-a">
+          <label for="titleInput" class="form-label">Recipe Title: &nbsp;</label>
+          <input type="text" class="form-control" id="title" placeholder="Title" aria-describedby="titleInputHelp">
+          <div id="titleInputHelp" class="form-help-text">Please Type the Title for your Recipe Here.</div>
+        </div>
+        <br>  
+        <div id="one-a">
+          <label for="instructionsInput" class="form-label">Recipe Instructions: &nbsp;</label>
+          <textarea type="text" class="form-control" id="instructions" placeholder="Instructions" aria-describedby="instructionsInputHelp" rows="5"></textarea>
+          <div id="instructionsInputHelp" class="form-help-text">Please Type the Instructions for your Recipe in Complete Sentences Here.</div>
+        </div>     
         <br>
-        &nbsp;<input type="submit" value="Create Recipe">
+        <button id="new-recipe-btn" type="submit" class="btn-primary" onclick="resetFunction()" value="Reset">Create Recipe</button>
       </form><br>      
     </div>
 
-    <div id="recipe-search-div">
-      <form id="recipe-search-form">
-        <label>Search for a Recipe Title: </label>
-        <input type="text" id="search-string" placeholder="Search for This:">
+
+
+    <div id="add-ingredient-form">
+      <form>
+
+        <label>Add An Ingredient to a Recipe:</label><br>
+
+        <div id="recipe-search-div">
+          <form id="recipe-search-form">
+            <label>Search for a Recipe Title: </label>
+            <input type="text" id="search-string" placeholder="Search for This:">
+            <br>
+            <input type="submit" value="Search">
+          </form>
+        </div>
+
         <br>
-        <input type="submit" value="Search">
+        Recipe Ingredient: &nbsp; <input id="name" type="text" placeholder="ingredient">
+        <br>
+        Measurement for Ingredient: &nbsp; <input id="measurement" type="text" placeholder="measurement">
+        <br>
+        <input type="submit" value="Add Ingredient">
       </form>
     </div>
 

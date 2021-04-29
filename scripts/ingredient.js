@@ -4,7 +4,10 @@ class Ingredient{
     this.name = name;
     this.measurement = measurement; 
     this.recipe_id = recipe_id;
+    Ingredient.allIngredients.push(this)
   }
+
+  static allIngredients = []
 
 //READ -- fetch each ingredient
 
@@ -29,12 +32,12 @@ class Ingredient{
 
 
 
-  // static makeNewIngredientForm() {
+  static makeNewIngredientForm() {
   //   let newIngredientDiv = document.getElementById()
   //   console.log(newIngredientDiv)
   //   // newIngredientDiv.addEventListener("submit", ingredientFormSubmit)
   
-  // }
+  }
 
   // static ingredientFormSubmit(event) {
   //   event.preventDefault()
@@ -70,22 +73,7 @@ class Ingredient{
 
     let recipeCard = document.getElementById(i.recipe_id)
 
-
-    // let createIngredientForm;
-    // createIngredientForm.innerHTML += `
-    // <div class="add-ingredient-form" id="ing-${this.id}">
-    //   <form>
-    //     <label>Add An Ingredient to ${this.title}:</label><br>
-    //     Recipe Ingredient: &nbsp; <input id="name" type="text" placeholder="ingredient">
-    //     <br>
-    //     Measurement for Ingredient: &nbsp; <input id="measurement" type="text" placeholder="measurement">
-    //     <br>
-    //     <input type="submit" value="Add Ingredient">
-    //   </form>
-    // </div>
-    // `
-
-    let ingredientUl = recipeCard.children[1].children[1]
+    let ingredientUl = recipeCard.children[1].children[2]
     let ingredientDiv = document.createElement('div');
     ingredientDiv.innerHTML += `
     <br>
@@ -97,7 +85,7 @@ class Ingredient{
     &nbsp;<button class="delete-button" data-id="${this.id}">Delete Ingredient</button>
     <br>
     `
-
+  
     ingredientUl.appendChild(ingredientDiv);
   }
 }

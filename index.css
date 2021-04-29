@@ -1,4 +1,14 @@
 body {
   font-family: 'Montez', cursive;
+  background-color: blanchedalmond;
+  text-decoration: maroon;
+  font-weight: 900;
+
+
+
 }
 
+
+.nuevo-recipe-form  {
+  padding: 10px;
+}

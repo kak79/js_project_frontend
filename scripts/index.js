@@ -5,12 +5,16 @@ document.addEventListener("DOMContentLoaded" , () => {
 
   Recipe.findRecipeByTitle()
 
+  resetFunction()
+
 })
 
 const BASE_URL = "http://127.0.0.1:3000"
 
 
- 
+function resetFunction() {
+  document.getElementById("new-recipe-form").reset();
+}
 
 
 //UPDATE -- edit a recipe -- stretch goal

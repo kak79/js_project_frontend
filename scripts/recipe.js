@@ -10,16 +10,20 @@ class Recipe{
 
   static findRecipeByTitle() {
     let title = document.getElementById("recipe-search-div")
+    console.log(title)
     title.addEventListener("submit", Recipe.findRecipeTitleSubmit)
   }
 
   static findRecipeTitleSubmit() {
     event.preventDefault()
 
+    debugger
+
     let searchString = document.getElementById("search-string")
     let recipeTitle = Recipe.allRecipes.find(element => element.title === searchString.value)
 
     if ( recipeTitle.title === searchString.value ) {
+      console.log(recipeTitle)
       debugger
       //hide all the other recipes or put a red box aroud the recipe
     } else {
@@ -95,7 +99,7 @@ class Recipe{
     recipeCard.innerHTML += `
     <br>
     <ul>
-    <h4>Recipe Title: ${this.title}</h4>
+    <h2>Recipe Title: ${this.title}</h2>
 
     <div class="makeIngForm">
     </div>
