@@ -38,7 +38,6 @@ class Recipe{
       }
       Ingredient.fetchIngredients()
       Recipe.allRecipesDropdown()
-      // Recipe.deleteRecipe()
     })
   }
 
