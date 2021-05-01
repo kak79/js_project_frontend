@@ -43,8 +43,8 @@ class Recipe{
   //CREATE -- add a new recipe 
 
   static makeNewRecipe() {
-    let newRecipeDiv = document.getElementById("new-recipe-form") 
-    newRecipeDiv.addEventListener("submit", Recipe.recipeFormSubmit)
+    let newRecipeForm = document.getElementById("new-recipe-form") 
+    newRecipeForm.addEventListener("submit", Recipe.recipeFormSubmit)
   }
 
   static recipeFormSubmit() {
@@ -70,9 +70,8 @@ class Recipe{
         let r = new Recipe(recipe.id, recipe.title, recipe.instructions)
         r.renderRecipe();
       })
-
-
-
+    let newRecipeForm = document.getElementById("new-recipe-form")
+    newRecipeForm.reset() 
   }
 
   //DELETE a recipe
