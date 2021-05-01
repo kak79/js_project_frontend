@@ -11,9 +11,11 @@ class Recipe{
   static allRecipesDropdown() {  
     let len = Recipe.allRecipes.length
     let sel = document.getElementById('dropdownMenuButton1');
-    let opt = document.createElement("option");
-    for(let i = 0; i < len; i++) {
-      opt.innerHTML = Recipe.allRecipes[i].title
+    
+    for(let i = 0; i <= len; i++) {
+      let opt = document.createElement("option");
+      let optTitle = Recipe.allRecipes[i].title
+      opt.innerHTML = optTitle
       opt.value = Recipe.allRecipes[i].id;
       sel.appendChild(opt);
     }
@@ -74,20 +76,6 @@ class Recipe{
     newRecipeForm.reset() 
   }
 
-  //DELETE a recipe
-
-  // static deleteRecipe() {
-  //   let len = Recipe.allRecipes.length
-  //   for(let i = 0; i < len; i++) {
-  //     let delId = Recipe.allRecipes[i].id;
-
-  //     fetch(`${BASE_URL}/recipes/${delId}`, {
-  //       method: 'DELETE'
-  //     })
-  //   }
-  //   window.location.reload()
-  // }
-
 
   renderRecipe() {
 
@@ -107,10 +95,10 @@ class Recipe{
     <div class="ingredient-container">
     </div>
     
+    <br>
+
     <li>Instructions: ${this.instructions}</li>
     </ul>
-    <br>
-    <button class="del-bttn" data-id="${this.id}" onclick="deleteRecipe()">Delete Recipe</button>
     `
   
     recipeDiv.appendChild(recipeCard)

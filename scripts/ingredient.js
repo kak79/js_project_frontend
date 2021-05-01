@@ -81,9 +81,6 @@ class Ingredient{
     <h4>Ingredient Name: ${this.name}</h4>
     <li>Ingredient Measurement: ${this.measurement}</li>
     </ul>
-    <br>
-    &nbsp;<button class="delete-button" data-id="${this.id}">Delete Ingredient</button>
-    <br>
     `
   
     ingredientUl.appendChild(ingredientDiv);
