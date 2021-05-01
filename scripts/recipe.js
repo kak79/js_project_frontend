@@ -8,30 +8,20 @@ class Recipe{
 
   static allRecipes = []
 
-  static findRecipeByTitle() {
-    let title = document.getElementById("recipe-search-form")
-    // debugger
-    // title.addEventListener("submit", () => {
-    //   debugger
-    // })
+  static allRecipesDropdown() {  
+    let len = Recipe.allRecipes.length
+    let sel = document.getElementById('dropdownMenuButton1');
+    let opt = document.createElement("option");
+    for(let i = 0; i < len; i++) {
+      opt.innerHTML = Recipe.allRecipes[i].title
+      opt.value = Recipe.allRecipes[i].id;
+      sel.appendChild(opt);
+    }
+    sel.addEventListener("change", Recipe.dropdownSubmit)
   }
 
-  static findRecipeTitleSubmit() {
-    event.preventDefault()
-
+  static dropdownSubmit() {
     debugger
-
-    let searchString = document.getElementById("search-string")
-    let recipeTitle = Recipe.allRecipes.find(element => element.title === searchString.value)
-
-    if ( recipeTitle.title === searchString.value ) {
-      
-      debugger
-      //hide all the other recipes or put a red box aroud the recipe
-    } else {
-      window.alert("No Recipe by that Title! Try Again!")
-    }
-
   }
 
 //READ -- fetch a recipe
@@ -45,6 +35,8 @@ class Recipe{
         r.renderRecipe();
       }
       Ingredient.fetchIngredients()
+      Recipe.allRecipesDropdown()
+      // Recipe.deleteRecipe()
     })
   }
 
@@ -78,17 +70,24 @@ class Recipe{
         let r = new Recipe(recipe.id, recipe.title, recipe.instructions)
         r.renderRecipe();
       })
+
+
+
   }
 
   //DELETE a recipe
 
-  static deleteRecipe() {
-    let recipeId = parseInt(event.target.dataset.id)
+  // static deleteRecipe() {
+  //   let len = Recipe.allRecipes.length
+  //   for(let i = 0; i < len; i++) {
+  //     let delId = Recipe.allRecipes[i].id;
 
-    fetch(`${BASE_URL}/recipes/${recipeId}`, {
-      method: 'DELETE'
-    })
-  }
+  //     fetch(`${BASE_URL}/recipes/${delId}`, {
+  //       method: 'DELETE'
+  //     })
+  //   }
+  //   window.location.reload()
+  // }
 
 
   renderRecipe() {

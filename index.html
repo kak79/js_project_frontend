@@ -37,42 +37,33 @@
 
 
 
-    <div id="add-ingredient-form">
-      <form>
-        <h2><label>Add An Ingredient to a Recipe:</label></h2><br>
+    <div id="add-ingredient">
+    
+      <h2><label>Add An Ingredient to a Recipe:</label></h2><br>
 
-        <div id="recipe-search-div">
-
-          <form id="recipe-search-form">
-            <div id="two-a">
-              <label for="search-for-recipe-title" class="form-label">Search for a Recipe Title: </label>
-              <input type="text" class="form-control" id="search-string" placeholder="Search for This:" aria-describedby="search-string-help">
-              <div id="search-string-help" class="form-help-text">Please Type the Title of the Recipe that you Want to Add an Ingredient to Here.</div>
-            </div>
-            <br>
-            <button id="search-recipe-title-btn" type="submit" class="btn-primary"  onclick="resetFunction2()" value="Reset" >Search</button>
-            <!-- -->
-          </form>
-
-        </div>
-
-        <br>
-        <div id="two-b">
-          <label for="new-ingredient" class="form-label">Recipe Ingredient: &nbsp; </label>
-          <input id="name" class="form-control" type="text" placeholder="ingredient" aria-describedby="ing-name-help">
-          <div id="ing-name-help" class="form-help-text">Please Type the Name of This Ingredient.</div>
-        </div>
-        <br>
-        <div id="two-c">
-          <label for="new-ing-measurement" class="form-label">Measurement for Ingredient: &nbsp; </label>
-          <input id="measurement" class="form-control" type="text" placeholder="measurement" aria-describedby="measurement-help">
-          <div id="measurement-help" class="form-help-text">Please Type the Measurement for this Ingredient.</div>
-        </div>
-        <br>
-        <button id="search-recipe-title-btn" type="submit" class="btn-primary" onclick="resetFunction3()" value="Reset" >Add Ingredient</button>
-        
-        
-      </form>
+      <div id="add-ingredient-form">
+        <form>
+          <div id="two-a">
+            <select class="form-select" id="dropdownMenuButton1" aria-label="Default select example">
+              <option selected>Select Recipe Title</option>
+            </select>
+          </div>
+          <br>
+          <div id="two-b">
+            <label for="new-ingredient" class="form-label">Recipe Ingredient: &nbsp; </label>
+            <input id="name" class="form-control" type="text" placeholder="ingredient" aria-describedby="ing-name-help">
+            <div id="ing-name-help" class="form-help-text">Please Type the Name of This Ingredient.</div>
+          </div>
+          <br>
+          <div id="two-c">
+            <label for="new-ing-measurement" class="form-label">Measurement for Ingredient: &nbsp; </label>
+            <input id="measurement" class="form-control" type="text" placeholder="measurement" aria-describedby="measurement-help">
+            <div id="measurement-help" class="form-help-text">Please Type the Measurement for this Ingredient.</div>
+          </div>
+          <br>
+          <button id="search-recipe-title-btn" type="submit" class="btn-primary" onclick="resetFunction3()" value="Reset" >Add Ingredient</button>
+        </form>
+      </div>
     </div>
 
     <div id="recipes-container">

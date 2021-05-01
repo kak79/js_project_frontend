@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded" , () => {
+  
   Recipe.makeNewRecipe()
   
   Recipe.fetchRecipes()
-
-  Recipe.findRecipeByTitle()
 
   resetFunction1()
 
@@ -17,15 +16,16 @@ const BASE_URL = "http://127.0.0.1:3000"
 
 
 function resetFunction1() {
-  document.getElementById("new-recipe-form").reset();
+  // debugger
+  // document.getElementById("new-recipe-form").reset();
 }
 
 function resetFunction2() {
-  document.getElementById("recipe-search-form").reset();
+  // document.getElementById("recipe-search-div").reset();
 }
 
 function resetFunction3() {
-  document.getElementById("add-ingredient-form").reset();
+  // document.getElementById("add-ingredient-form").reset();
 }
 
 
