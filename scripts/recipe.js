@@ -12,18 +12,37 @@ class Recipe{
     let len = Recipe.allRecipes.length
     let sel = document.getElementById('dropdownMenuButton1');
     
-    for(let i = 0; i <= len; i++) {
+    for (let i = 0; i < len; i++) {
       let opt = document.createElement("option");
       let optTitle = Recipe.allRecipes[i].title
       opt.innerHTML = optTitle
       opt.value = Recipe.allRecipes[i].id;
       sel.appendChild(opt);
     }
+    
     sel.addEventListener("change", Recipe.dropdownSubmit)
   }
 
   static dropdownSubmit() {
-    debugger
+    let sel = document.getElementById("dropdownMenuButton1")
+    let optValue = sel.querySelectorAll("option[value]")
+
+    for (let i = 0; i < optValue.length; i++ ) {
+      let optIndex = optValue[i].index
+      
+      for ( i = 0; i < Recipe.allRecipes.length; i++ ) { 
+
+        if ( optIndex === Recipe.allRecipes[i].id ) { 
+
+          console.log(Recipe.allRecipes[i]) 
+
+        } else {
+
+          // ????
+
+        }
+      }      
+    }
   }
 
 //READ -- fetch a recipe
@@ -72,6 +91,7 @@ class Recipe{
         r.renderRecipe();
       })
     let newRecipeForm = document.getElementById("new-recipe-form")
+    window.location.reload()
     newRecipeForm.reset() 
   }
 
