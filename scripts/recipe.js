@@ -25,6 +25,7 @@ class Recipe {
 
   static dropdownSubmit(e) {
     let recID = e.target.value
+    return recID
   }
 
 
@@ -39,7 +40,7 @@ class Recipe {
         r.renderRecipe();
       }
       Ingredient.fetchIngredients()
-      Recipe.allRecipesDropdown()
+      
     })
   }
 

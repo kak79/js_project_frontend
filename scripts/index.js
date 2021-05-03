@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded" , () => {
   
   Recipe.fetchRecipes()
 
+  Ingredient.createAnIngredient()
+
 })
 
 const BASE_URL = "http://127.0.0.1:3000"

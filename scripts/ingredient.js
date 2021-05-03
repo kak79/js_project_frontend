@@ -32,12 +32,13 @@ class Ingredient{
 
 
 
-  // static makeNewIngredientForm() {
-  //   debugger
+  static createAnIngredient() {
+    Recipe.allRecipesDropdown()
+    debugger
   //   console.log(newIngredientDiv)
   //   newIngredientDiv.addEventListener("submit", ingredientFormSubmit)
   
-  // }
+  }
 
   // static ingredientFormSubmit(event) {
   //   event.preventDefault()
