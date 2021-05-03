@@ -8,6 +8,12 @@ class Recipe{
 
   static allRecipes = []
 
+  static allRecipesId() {
+    for (let i = 0; i < Recipe.allRecipes.length; i++) {
+      let recValue = Recipe.allRecipes[i].id;
+    }
+  }
+
   static allRecipesDropdown() {  
     let len = Recipe.allRecipes.length
     let sel = document.getElementById('dropdownMenuButton1');
@@ -27,23 +33,25 @@ class Recipe{
     let sel = document.getElementById("dropdownMenuButton1")
     let optValue = sel.querySelectorAll("option[value]")
 
-    for (let i = 0; i < optValue.length; i++ ) {
-      let optIndex = optValue[i].index
-      
-      for ( i = 0; i < Recipe.allRecipes.length; i++ ) { 
+    // optValue.forEach( element => parseInt( element.value ).addEventListener( 'click', selectElement ))
+    // function selectElement() {
+    
+    // }
 
-        if ( optIndex === Recipe.allRecipes[i].id ) { 
-
-          console.log(Recipe.allRecipes[i]) 
-
-        } else {
-
-          // ????
-
-        }
-      }      
+    // optValue.find((element => {
+    //   debugger
+    // }))
+    // debugger
+    let optElement = [];
+    for(let i=0; i < optValue.length; i++) { 
+      //  debugger
+      optElement.push(optValue[i].index);
     }
+    debugger
+    optElement.find(element => element === this.id )
+
   }
+
 
 //READ -- fetch a recipe
 
