@@ -1,4 +1,4 @@
-class Recipe{ 
+class Recipe { 
   constructor(id,title, instructions){
     this.id = id;
     this.title = title;
@@ -7,12 +7,6 @@ class Recipe{
   }
 
   static allRecipes = []
-
-  static allRecipesId() {
-    for (let i = 0; i < Recipe.allRecipes.length; i++) {
-      let recValue = Recipe.allRecipes[i].id;
-    }
-  }
 
   static allRecipesDropdown() {  
     let len = Recipe.allRecipes.length
@@ -29,27 +23,8 @@ class Recipe{
     sel.addEventListener("change", Recipe.dropdownSubmit)
   }
 
-  static dropdownSubmit() {
-    let sel = document.getElementById("dropdownMenuButton1")
-    let optValue = sel.querySelectorAll("option[value]")
-
-    // optValue.forEach( element => parseInt( element.value ).addEventListener( 'click', selectElement ))
-    // function selectElement() {
-    
-    // }
-
-    // optValue.find((element => {
-    //   debugger
-    // }))
-    // debugger
-    let optElement = [];
-    for(let i=0; i < optValue.length; i++) { 
-      //  debugger
-      optElement.push(optValue[i].index);
-    }
-    debugger
-    optElement.find(element => element === this.id )
-
+  static dropdownSubmit(e) {
+    let recID = e.target.value
   }
 
 
