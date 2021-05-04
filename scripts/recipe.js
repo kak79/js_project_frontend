@@ -1,14 +1,16 @@
 class Recipe { 
-  constructor(id,title, instructions){
+  constructor(id,title, instructions, ingredients){
     this.id = id;
     this.title = title;
     this.instructions = instructions; 
+    this.ingredients = ingredients
     Recipe.allRecipes.push(this)
   }
 
   static allRecipes = []
 
   static allRecipesDropdown() {  
+    // debugger
     let len = Recipe.allRecipes.length
     let sel = document.getElementById('dropdownMenuButton1');
     
@@ -17,80 +19,38 @@ class Recipe {
       let optTitle = Recipe.allRecipes[i].title
       opt.innerHTML = optTitle
       opt.value = Recipe.allRecipes[i].id;
+      // debugger
       sel.appendChild(opt);
     }
-    
-    sel.addEventListener("change", Recipe.dropdownSubmit)
-  }
-
-  static dropdownSubmit(e) {
-    let recID = e.target.value
-    return recID
-  }
-
-
-//READ -- fetch a recipe
-
-  static fetchRecipes() {
-    fetch(`${BASE_URL}/recipes`)
-    .then(resp => resp.json())
-    .then(recipes => {
-      for( const recipe of recipes) {
-        let r = new Recipe(recipe.id, recipe.title, recipe.instructions)
-        r.renderRecipe();
-      }
-      Ingredient.fetchIngredients()
+    // debugger
+    sel.addEventListener("change", (e) => Recipe.setRecID(e))
       
-    })
   }
 
-  //CREATE -- add a new recipe 
-
-  static makeNewRecipe() {
-    let newRecipeForm = document.getElementById("new-recipe-form") 
-    newRecipeForm.addEventListener("submit", Recipe.recipeFormSubmit)
+  static setRecID(e) {
+    e.preventDefault()
+    recID = event.target.value
+    let subBtn = document.getElementById("new-ing-frm")
+    subBtn.addEventListener("submit", (e) => Recipe.submitFormRecID(e, recID))
   }
 
-  static recipeFormSubmit() {
-    event.preventDefault()
-    let title = document.getElementById("title").value
-    let instructions = document.getElementById("instructions").value
-
-    let recipe = {
-      title: title,
-      instructions: instructions
-    }
-
-    fetch(`${BASE_URL}/recipes`, {
-      method: 'POST',
-      headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-      body: JSON.stringify(recipe)  
-    })
-    .then(resp => resp.json())
-    .then(recipes => {
-        let r = new Recipe(recipe.id, recipe.title, recipe.instructions)
-        r.renderRecipe();
-      })
-    let newRecipeForm = document.getElementById("new-recipe-form")
-    window.location.reload()
-    newRecipeForm.reset() 
+  static submitFormRecID(recID) {
+    e.preventDefault()
+    Api.createAnIngredient()
   }
 
 
-  renderRecipe() {
+  static renderRecipe(r) {
 
     let recipeDiv = document.getElementById("recipes-container")
     let recipeCard = document.createElement('div')
-    recipeCard.id = `${this.id}`
+    recipeCard.id = `${r.id}`
     recipeCard.className = "recipe-card"
 
     recipeCard.innerHTML += `
     <br>
     <ul>
-    <h2>Recipe Title: ${this.title}</h2>
+    <h2>Recipe Title: ${r.title}</h2>
 
     <div class="makeIngForm">
     </div>
@@ -100,7 +60,7 @@ class Recipe {
     
     <br>
 
-    <li>Instructions: ${this.instructions}</li>
+    <li>Instructions: ${r.instructions}</li>
     </ul>
     `
   
