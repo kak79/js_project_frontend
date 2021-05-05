@@ -1,6 +1,6 @@
 class Api{
 
-  //READ -- fetch a recipe
+  //READ -- fetch a recipe and it's ingredients
 
   static fetchRecipes() {
     fetch(`${BASE_URL}/recipes`)
@@ -57,33 +57,10 @@ class Api{
     newRecipeForm.reset() 
   }
 
-
-
-
 //CREATE -- add a new ingredients to a recipe 
 
-  // static createAnIngredient(recID) {
-    // debugger
-    // let newIngredientDiv = document.getElementById("add-ingredient-form")
-    // newIngredientDiv.addEventListener("submit", Api.ingredientFormSubmit(recID))
-
-  // }
-
   static ingredientFormSubmit(recID) {
-    // debugger
     event.preventDefault()
-    // let name = document.getElementById("name").value
-    // let measurement = document.getElementById("measurement").value
-
-    // recipe = {
-    //   id: recID,
-    //   ingredients_attributes: {
-    //     name: name,
-    //     measurement: measurement
-    //   }
-    // }
-    
-
     fetch(`${BASE_URL}/recipes/${recipe.id}`, {
       method: 'PATCH',
       headers: {
@@ -95,8 +72,6 @@ class Api{
     .then(resp => resp.json())
     .then(recipe => {
       console.log(recipe)
-      // Ingredient.renderIngredient(recipe,i);
-      // find recipe div with all ingredients + new one on dom and replace with updated object
       window.location.reload()
     })
   }

@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded" , () => {
   let searchBtn = document.getElementById("search-recipe-title-btn")
   searchBtn.addEventListener("click", (e) => { Api.ingredientFormSubmit() })
 
-
 })
 
 const BASE_URL = "http://127.0.0.1:3000"

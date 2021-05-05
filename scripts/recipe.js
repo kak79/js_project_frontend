@@ -9,9 +9,7 @@ class Recipe {
 
   static allRecipes = []
 
-  static allRecipesDropdown() {  
-    // debugger
-    
+  static allRecipesDropdown() {    
     let sel = document.getElementById('dropdownMenuButton1');
     
     for (let i = 0; i < Recipe.allRecipes.length; i++) {
@@ -22,44 +20,25 @@ class Recipe {
       
       sel.appendChild(opt);
     }
-    // debugger
+
     sel.addEventListener("change", (e) => Recipe.setRecID(e))
-      
   }
 
   static setRecID(e) {
     e.preventDefault()
-    // debugger
     recID = parseInt(e.target.value)
     recipe.id = recID
-    // console.log(recipe)
-    
   }
 
    static setIngName() {
     let ingName = document.getElementById("ing-name").value
-    console.log(ingName)
     recipe.ingredients_attributes.name = ingName
-    console.log(recipe)
-
-    // let subBtn = document.getElementById("new-ing-frm")
-    // console.log(subBtn)
-    // subBtn.addEventListener("submit", (e) => Recipe.submitFormRecID(e))
-
    }
 
    static setIngMeasurement() {
-
     let ingMeasur = document.getElementById("ing-measurement").value
     recipe.ingredients_attributes.measurement = ingMeasur
-    console.log(ingMeasur)
-    console.log(recipe)
-
-
    }
-
-
-
 
   static renderRecipe(r) {
     let recipeDiv = document.getElementById("recipes-container")

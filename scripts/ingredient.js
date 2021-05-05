@@ -9,11 +9,9 @@ class Ingredient{
 
   static allIngredients = []
 
-
   static renderIngredient(r,i) {
 
     let recipeCard = document.getElementById(r.id)
-    // debugger
 
     let ingredientUl = recipeCard.children[1].children[2]
     let ingredientDiv = document.createElement('div');
@@ -24,7 +22,6 @@ class Ingredient{
     <li>Ingredient Measurement: ${i.measurement}</li>
     </ul>
     `
-  
     ingredientUl.appendChild(ingredientDiv);
   }
 }
