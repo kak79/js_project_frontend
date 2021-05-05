@@ -11,15 +11,15 @@ class Recipe {
 
   static allRecipesDropdown() {  
     // debugger
-    let len = Recipe.allRecipes.length
+    
     let sel = document.getElementById('dropdownMenuButton1');
     
-    for (let i = 0; i < len; i++) {
+    for (let i = 0; i < Recipe.allRecipes.length; i++) {
       let opt = document.createElement("option");
       let optTitle = Recipe.allRecipes[i].title
       opt.innerHTML = optTitle
       opt.value = Recipe.allRecipes[i].id;
-      // debugger
+      
       sel.appendChild(opt);
     }
     // debugger
@@ -29,19 +29,39 @@ class Recipe {
 
   static setRecID(e) {
     e.preventDefault()
-    recID = event.target.value
-    let subBtn = document.getElementById("new-ing-frm")
-    subBtn.addEventListener("submit", (e) => Recipe.submitFormRecID(e, recID))
+    // debugger
+    recID = parseInt(e.target.value)
+    recipe.id = recID
+    // console.log(recipe)
+    
   }
 
-  static submitFormRecID(recID) {
-    e.preventDefault()
-    Api.createAnIngredient()
-  }
+   static setIngName() {
+    let ingName = document.getElementById("ing-name").value
+    console.log(ingName)
+    recipe.ingredients_attributes.name = ingName
+    console.log(recipe)
+
+    // let subBtn = document.getElementById("new-ing-frm")
+    // console.log(subBtn)
+    // subBtn.addEventListener("submit", (e) => Recipe.submitFormRecID(e))
+
+   }
+
+   static setIngMeasurement() {
+
+    let ingMeasur = document.getElementById("ing-measurement").value
+    recipe.ingredients_attributes.measurement = ingMeasur
+    console.log(ingMeasur)
+    console.log(recipe)
+
+
+   }
+
+
 
 
   static renderRecipe(r) {
-
     let recipeDiv = document.getElementById("recipes-container")
     let recipeCard = document.createElement('div')
     recipeCard.id = `${r.id}`
