@@ -53,8 +53,7 @@ class Api{
         Recipe.renderRecipe(r);
       })
     let newRecipeForm = document.getElementById("new-recipe-form")
-    window.location.reload()
-    newRecipeForm.reset() 
+    newRecipeForm.reset()
   }
 
 //CREATE -- add a new ingredients to a recipe 
@@ -71,8 +70,9 @@ class Api{
     })
     .then(resp => resp.json())
     .then(recipe => {
-      console.log(recipe)
-      window.location.reload()
+      recipe.reset()
+      Recipe.renderRecipe()
+      Ingredient.renderIngredient()
     })
   }
 }

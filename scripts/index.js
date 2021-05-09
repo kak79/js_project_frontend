@@ -37,4 +37,3 @@ let recipe = {
     measurement: ingMeasur
   }
 }
-console.log(recipe)
