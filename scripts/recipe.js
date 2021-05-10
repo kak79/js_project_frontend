@@ -30,15 +30,15 @@ class Recipe {
     recipe.id = recID
   }
 
-   static setIngName() {
+  static setIngName() {
     let ingName = document.getElementById("ing-name").value
     recipe.ingredients_attributes.name = ingName
-   }
+  }
 
-   static setIngMeasurement() {
+  static setIngMeasurement() {
     let ingMeasur = document.getElementById("ing-measurement").value
     recipe.ingredients_attributes.measurement = ingMeasur
-   }
+  }
 
   static renderRecipe(r) {
     let recipeDiv = document.getElementById("recipes-container")
