@@ -1,10 +1,10 @@
 class Recipe { 
-  constructor(id,title, instructions, ingredients){
+  constructor(id, title, instructions, ingredients){
     this.id = id;
     this.title = title;
     this.instructions = instructions; 
-    this.ingredients = ingredients
-    Recipe.allRecipes.push(this)
+    this.ingredients = ingredients;
+    Recipe.allRecipes.push(this);
   }
 
   static allRecipes = []
@@ -21,30 +21,30 @@ class Recipe {
       sel.appendChild(opt);
     }
 
-    sel.addEventListener("change", (e) => Recipe.setRecID(e))
+    sel.addEventListener("change", (e) => Recipe.setRecID(e));
   }
 
   static setRecID(e) {
-    e.preventDefault()
-    recID = parseInt(e.target.value)
-    recipe.id = recID
+    e.preventDefault();
+    recID = parseInt(e.target.value);
+    recipe.id = recID;
   }
 
   static setIngName() {
-    let ingName = document.getElementById("ing-name").value
-    recipe.ingredients_attributes.name = ingName
+    let ingName = document.getElementById("ing-name").value;
+    recipe.ingredients_attributes.name = ingName;
   }
 
   static setIngMeasurement() {
-    let ingMeasur = document.getElementById("ing-measurement").value
-    recipe.ingredients_attributes.measurement = ingMeasur
+    let ingMeasur = document.getElementById("ing-measurement").value;
+    recipe.ingredients_attributes.measurement = ingMeasur;
   }
 
   static renderRecipe(r) {
-    let recipeDiv = document.getElementById("recipes-container")
-    let recipeCard = document.createElement('div')
-    recipeCard.id = `${r.id}`
-    recipeCard.className = "recipe-card"
+    let recipeDiv = document.getElementById("recipes-container");
+    let recipeCard = document.createElement('div');
+    recipeCard.id = `${r.id}`;
+    recipeCard.className = "recipe-card";
 
     recipeCard.innerHTML += `
     <br>
@@ -61,9 +61,9 @@ class Recipe {
 
     <li>Instructions: ${r.instructions}</li>
     </ul>
-    `
+    `;
   
-    recipeDiv.appendChild(recipeCard)
+    recipeDiv.appendChild(recipeCard);
 
   }
 }

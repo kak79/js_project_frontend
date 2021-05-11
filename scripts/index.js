@@ -1,24 +1,26 @@
 document.addEventListener("DOMContentLoaded" , () => {
   
-  Api.makeNewRecipe()
+  Api.makeNewRecipe();
   
-  Api.fetchRecipes()
+  Api.fetchRecipes();
 
-  
-  let input1 = document.getElementById("ing-name")
+  let input1 = document.getElementById("ing-name");
 
   let ingredientInput1 = input1.addEventListener("change", (e) => {
     Recipe.setIngName(e) 
-  })
+  });
 
-  let input2 = document.getElementById("ing-measurement")
+  let input2 = document.getElementById("ing-measurement");
 
   let ingredientInput2 = input2.addEventListener("change", (e) => {
     Recipe.setIngMeasurement(e) 
-  })
+  });
 
-  let searchBtn = document.getElementById("search-recipe-title-btn")
-  searchBtn.addEventListener("click", (e) => { Api.ingredientFormSubmit() })
+  let searchBtn = document.getElementById("search-recipe-title-btn");
+
+  searchBtn.addEventListener("click", (e) => { Api.ingredientFormSubmit() });
+
+  Recipe.allRecipesDropdown();
 
 })
 

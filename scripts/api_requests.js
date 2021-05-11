@@ -1,5 +1,7 @@
 class Api{
 
+  
+
   //READ -- fetch a recipe and it's ingredients
 
   static fetchRecipes() {
@@ -7,32 +9,30 @@ class Api{
     .then(resp => resp.json())
     .then(recipes => {
       for( const recipe of recipes) {
-        let r = new Recipe(recipe.id, recipe.title, recipe.instructions, recipe.ingredients)
+        let r = new Recipe(recipe.id, recipe.title, recipe.instructions, recipe.ingredients);
         
         Recipe.renderRecipe(r);
           recipe.ingredients.forEach(
             ingredient => {
-              let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement)
+              let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement);
               Ingredient.renderIngredient(r,i);
-          })
-        
+            })
       }
-      
-      Recipe.allRecipesDropdown()
     })
+    
   }
 
   //CREATE -- add a new recipe 
 
   static makeNewRecipe() {
-    let newRecipeForm = document.getElementById("new-recipe-form") 
-    newRecipeForm.addEventListener("submit", Api.recipeFormSubmit)
+    let newRecipeForm = document.getElementById("new-recipe-form"); 
+    newRecipeForm.addEventListener("submit", Api.recipeFormSubmit);
   }
 
   static recipeFormSubmit() {
-    event.preventDefault()
-    let title = document.getElementById("title").value
-    let instructions = document.getElementById("instructions").value
+    event.preventDefault();
+    let title = document.getElementById("title").value;
+    let instructions = document.getElementById("instructions").value;
 
     let recipe = {
       title: title,
@@ -49,11 +49,11 @@ class Api{
     })
     .then(resp => resp.json())
     .then(recipe => {
-        let r = new Recipe(recipe.id, recipe.title, recipe.instructions, recipe.ingredients)
+        let r = new Recipe(recipe.id, recipe.title, recipe.instructions, recipe.ingredients);
         Recipe.renderRecipe(r);
       })
-    let newRecipeForm = document.getElementById("new-recipe-form")
-    newRecipeForm.reset()
+    let newRecipeForm = document.getElementById("new-recipe-form");
+    newRecipeForm.reset();
   }
 
 //CREATE -- add a new ingredients to a recipe 
@@ -70,9 +70,13 @@ class Api{
     })
     .then(resp => resp.json())
     .then(recipe => {
-      recipe.reset()
-      Recipe.renderRecipe()
-      Ingredient.renderIngredient()
+      
+      Recipe.renderRecipe(recipe)
+      Ingredient.renderIngredient(recipe, recipe.ingredients);
     })
+    let newIngInputA = document.getElementById("two-c");
+    newIngInputA.reset();
+    let newIngInputB = document.getElementById("two-c");
+    newIngInputB.reset();
   }
 }
