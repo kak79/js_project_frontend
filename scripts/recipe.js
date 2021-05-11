@@ -10,7 +10,6 @@ class Recipe {
 
   static setRecTitle() {
     recTitle = document.getElementById("rec-title").value;
-    
     recipe.title = recTitle;
   }
 
