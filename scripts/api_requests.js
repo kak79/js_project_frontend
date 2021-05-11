@@ -1,15 +1,13 @@
 class Api{
 
-  
-
   //READ -- fetch a recipe and it's ingredients
 
   static fetchRecipes() {
-    fetch(`${BASE_URL}/recipes`)
+    fetch(`${BASE_URL}`)
     .then(resp => resp.json())
     .then(recipes => {
       for( const recipe of recipes) {
-        let r = new Recipe(recipe.id, recipe.title, recipe.instructions, recipe.ingredients);
+        let r = new Recipe(recipe.id, recipe.title, recipe.instructions);
         
         Recipe.renderRecipe(r);
           recipe.ingredients.forEach(
@@ -18,28 +16,17 @@ class Api{
               Ingredient.renderIngredient(r,i);
             })
       }
-    })
-    
+      // Recipe.allRecipesDropdown();
+    })   
   }
 
   //CREATE -- add a new recipe 
 
-  static makeNewRecipe() {
-    let newRecipeForm = document.getElementById("new-recipe-form"); 
-    newRecipeForm.addEventListener("submit", Api.recipeFormSubmit);
-  }
+  static makeNewRecipe(e) {
+    // debugger
+    e.preventDefault();
 
-  static recipeFormSubmit() {
-    event.preventDefault();
-    let title = document.getElementById("title").value;
-    let instructions = document.getElementById("instructions").value;
-
-    let recipe = {
-      title: title,
-      instructions: instructions
-    }
-
-    fetch(`${BASE_URL}/recipes`, {
+    fetch(`${BASE_URL}`, {
       method: 'POST',
       headers: {
           'Accept': 'application/json',
@@ -51,32 +38,31 @@ class Api{
     .then(recipe => {
         let r = new Recipe(recipe.id, recipe.title, recipe.instructions, recipe.ingredients);
         Recipe.renderRecipe(r);
+        Recipe.allRecipesDropdown();
       })
     let newRecipeForm = document.getElementById("new-recipe-form");
     newRecipeForm.reset();
   }
 
-//CREATE -- add a new ingredients to a recipe 
+//EDIT -- add a new ingredients to a recipe by editing a recipe
 
-  static ingredientFormSubmit(recID) {
-    event.preventDefault()
-    fetch(`${BASE_URL}/recipes/${recipe.id}`, {
+  static createAnIngredient(e) {
+    e.preventDefault()
+    fetch(`${BASE_URL}/${recipe2.id}`, {
       method: 'PATCH',
       headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-      body: JSON.stringify(recipe)  
+      body: JSON.stringify(recipe2)  
     })
     .then(resp => resp.json())
     .then(recipe => {
-      
+      // debugger
       Recipe.renderRecipe(recipe)
       Ingredient.renderIngredient(recipe, recipe.ingredients);
     })
-    let newIngInputA = document.getElementById("two-c");
-    newIngInputA.reset();
-    let newIngInputB = document.getElementById("two-c");
-    newIngInputB.reset();
+    let newIngForm = document.getElementById("new-ing-frm");
+    newIngForm.reset(); 
   }
 }

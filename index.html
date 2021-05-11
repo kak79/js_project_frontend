@@ -11,9 +11,9 @@
     <!-- External Scripts -->
 
     <script defer src="scripts/index.js" charset="utf-8"></script>
+    <script defer src="scripts/api_requests.js" charset="utf-8"></script>
     <script defer src="scripts/recipe.js" charset="utf-8"></script>
     <script defer src="scripts/ingredient.js" charset="utf-8"></script>
-    <script defer src="scripts/api_requests.js" charset="utf-8"></script>
 
   </head>
   <body>
@@ -23,13 +23,13 @@
         <h2><label>Add A Recipe: </label></h2><br>
         <div id="one-a">
           <label for="titleInput" class="form-label">Recipe Title: &nbsp;</label>
-          <input type="text" class="form-control" id="title" placeholder="Title" aria-describedby="titleInputHelp">
+          <input type="text" class="form-control" id="rec-title" placeholder="Title" aria-describedby="titleInputHelp">
           <div id="titleInputHelp" class="form-help-text">Please Type the Title for your Recipe Here.</div>
         </div>
         <br>  
         <div id="one-b">
           <label for="instructionsInput" class="form-label">Recipe Instructions: &nbsp;</label>
-          <textarea type="text" class="form-control" id="instructions" placeholder="Instructions" aria-describedby="instructionsInputHelp" rows="5"></textarea>
+          <textarea type="text" class="form-control" id="rec-instructions" placeholder="Instructions" aria-describedby="instructionsInputHelp" rows="5"></textarea>
           <div id="instructionsInputHelp" class="form-help-text">Please Type the Instructions for your Recipe in Complete Sentences Here.</div>
         </div>     
         <br>

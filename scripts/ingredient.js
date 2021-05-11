@@ -9,8 +9,18 @@ class Ingredient{
 
   static allIngredients = []
 
-  static renderIngredient(r,i) {
+  static setIngName() {
+    ingName = document.getElementById("ing-name").value;
+    recipe2.ingredients_attributes.name = ingName;
+  }
 
+  static setIngMeasurement() {
+    ingMeasur = document.getElementById("ing-measurement").value;
+    recipe2.ingredients_attributes.measurement = ingMeasur;
+  }
+
+  static renderIngredient(r,i) {
+    // debugger
     let recipeCard = document.getElementById(r.id);
 
     let ingredientUl = recipeCard.children[1].children[2];

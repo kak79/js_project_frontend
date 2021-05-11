@@ -1,13 +1,24 @@
 class Recipe { 
-  constructor(id, title, instructions, ingredients){
+  constructor(id, title, instructions){
     this.id = id;
     this.title = title;
     this.instructions = instructions; 
-    this.ingredients = ingredients;
     Recipe.allRecipes.push(this);
   }
 
   static allRecipes = []
+
+  static setRecTitle() {
+    recTitle = document.getElementById("rec-title").value;
+    
+    recipe.title = recTitle;
+  }
+
+  static setRecInstruct() {
+    recStructions = document.getElementById("rec-instructions").value;
+    recipe.instructions = recStructions;
+  }
+
 
   static allRecipesDropdown() {    
     let sel = document.getElementById('dropdownMenuButton1');
@@ -27,20 +38,13 @@ class Recipe {
   static setRecID(e) {
     e.preventDefault();
     recID = parseInt(e.target.value);
-    recipe.id = recID;
+    recipe2.id = recID;
   }
 
-  static setIngName() {
-    let ingName = document.getElementById("ing-name").value;
-    recipe.ingredients_attributes.name = ingName;
-  }
 
-  static setIngMeasurement() {
-    let ingMeasur = document.getElementById("ing-measurement").value;
-    recipe.ingredients_attributes.measurement = ingMeasur;
-  }
 
   static renderRecipe(r) {
+    // debugger
     let recipeDiv = document.getElementById("recipes-container");
     let recipeCard = document.createElement('div');
     recipeCard.id = `${r.id}`;
