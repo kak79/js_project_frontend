@@ -3,7 +3,8 @@ class Recipe {
     this.id = id;
     this.title = title;
     this.instructions = instructions; 
-    Recipe.allRecipes.push(this);
+    Recipe.allRecipes.push(this)
+    Recipe.appendTheDropdown(this)
   }
 
   static allRecipes = []
@@ -19,20 +20,30 @@ class Recipe {
   }
 
 
-  static allRecipesDropdown() {    
-    let sel = document.getElementById('dropdownMenuButton1');
-    
-    for (let i = 0; i < Recipe.allRecipes.length; i++) {
-      let opt = document.createElement("option");
-      let optTitle = Recipe.allRecipes[i].title
-      opt.innerHTML = optTitle
-      opt.value = Recipe.allRecipes[i].id;
-      
-      sel.appendChild(opt);
-    }
+  // static theDropdown() {
 
+  //   for (let i = 0; i < Recipe.allRecipes.length; i++) {
+  //     // console.log(i)
+  //     let opt = document.createElement("option");
+  //     let optTitle = Recipe.allRecipes[i].title
+  //     opt.innerHTML = optTitle
+  //     opt.value = Recipe.allRecipes[i].id;
+  //     sel.appendChild(opt);
+  //     // debugger
+  //   }
+  //   sel.addEventListener("change", (e) => Recipe.setRecID(e));
+  // }
+
+  static appendTheDropdown(r) {
+    let opt = document.createElement("option");
+    opt.innerHTML = r.title;
+    opt.value = r.id;
+    sel.appendChild(opt);
+    
     sel.addEventListener("change", (e) => Recipe.setRecID(e));
   }
+
+
 
   static setRecID(e) {
     e.preventDefault();

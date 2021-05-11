@@ -26,11 +26,13 @@ document.addEventListener("DOMContentLoaded" , () => {
 
   searchBtn.addEventListener("click", (e) => { Api.createAnIngredient(e) });
 
-  Recipe.allRecipesDropdown();
-
 })
 
 const BASE_URL = "http://127.0.0.1:3000/recipes"
+
+let sel = document.getElementById('dropdownMenuButton1');
+
+let opt = document.createElement("option");
 
 let recTitle;
 
