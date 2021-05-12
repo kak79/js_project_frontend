@@ -20,7 +20,6 @@ class Ingredient{
   }
 
   static renderIngredient(r,i) {
-    // debugger
     let recipeCard = document.getElementById(r.id);
 
     let ingredientUl = recipeCard.children[1].children[2];

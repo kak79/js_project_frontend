@@ -15,15 +15,12 @@ class Api{
               Ingredient.renderIngredient(r,i);
             })
       }
-      // console.log("making dropdown")
-      // Recipe.theDropdown();
     })   
   }
 
   //CREATE -- add a new recipe 
 
-  static makeNewRecipe(e) {
-    
+  static makeNewRecipe(e) {  
     e.preventDefault();
 
     fetch(`${BASE_URL}`, {
@@ -38,8 +35,6 @@ class Api{
     .then(recipe => {
         let r = new Recipe(recipe.id, recipe.title, recipe.instructions);
         Recipe.renderRecipe(r);
-        
-        // Recipe.appendTheDropdown(r);
       })
     let newRecipeForm = document.getElementById("new-recipe-form");
     newRecipeForm.reset();
@@ -60,13 +55,8 @@ class Api{
     .then(resp => resp.json())
     .then(recipe => {
       let ingredient = recipe.ingredients[recipe.ingredients.length - 1 ]
-
-      // while(recipe.ingredients[-1]){
-      //   ingredient => {
           let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement);
           Ingredient.renderIngredient(recipe,i);
-      //   }
-      // }
     })
     let newIngForm = document.getElementById("new-ing-frm");
     newIngForm.reset(); 

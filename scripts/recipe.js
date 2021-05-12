@@ -3,11 +3,11 @@ class Recipe {
     this.id = id;
     this.title = title;
     this.instructions = instructions; 
-    Recipe.allRecipes.push(this)
-    Recipe.appendTheDropdown(this)
+    Recipe.allRecipes.push(this);
+    Recipe.appendTheDropdown(this);
   }
 
-  static allRecipes = []
+  static allRecipes = [];
 
   static setRecTitle() {
     recTitle = document.getElementById("rec-title").value;
@@ -19,21 +19,6 @@ class Recipe {
     recipe.instructions = recStructions;
   }
 
-
-  // static theDropdown() {
-
-  //   for (let i = 0; i < Recipe.allRecipes.length; i++) {
-  //     // console.log(i)
-  //     let opt = document.createElement("option");
-  //     let optTitle = Recipe.allRecipes[i].title
-  //     opt.innerHTML = optTitle
-  //     opt.value = Recipe.allRecipes[i].id;
-  //     sel.appendChild(opt);
-  //     // debugger
-  //   }
-  //   sel.addEventListener("change", (e) => Recipe.setRecID(e));
-  // }
-
   static appendTheDropdown(r) {
     let opt = document.createElement("option");
     opt.innerHTML = r.title;
@@ -43,18 +28,13 @@ class Recipe {
     sel.addEventListener("change", (e) => Recipe.setRecID(e));
   }
 
-
-
   static setRecID(e) {
     e.preventDefault();
     recID = parseInt(e.target.value);
     recipe2.id = recID;
   }
 
-
-
   static renderRecipe(r) {
-    // debugger
     let recipeDiv = document.getElementById("recipes-container");
     let recipeCard = document.createElement('div');
     recipeCard.id = `${r.id}`;
