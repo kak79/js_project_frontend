@@ -6,21 +6,19 @@ Flatiron Portfolio Project -- Module 4: JS Frontend with Rails API<br><br>
 **Install Instructions**
 <br><br>
 Make a folder on your system, fork and clone this repo and https://github.com/kak79/js_project_backend into two sub folders or directories so they are in the same folder or directory.<br>
-Run `bundle install` in terminal.<br>
-Run `rails db:migrate` in terminal.<br>
-Run `rails db:seed` in terminal to create if you would like to add the two recipes I have in this database.<br><br>
+Navigate to the 'js_project_backend' folder in the terminal and run the following:<br>
+
+bundle install<br>
+rails db:migrate<br>
+rails db:seed<br>
+<br>
 
 **Running the App**
 <br><br>
-Open a separate tab in terminal and navigate to the 'js_project_backend' folder.<br>
-Once in the folder, run `rails s` in your terminal to access and use the Rails API.<br>
-Find the 'js_project_frontend' folder and open index.html in your browser.<br>
-Have fun!<br><br>
-
-**Contributing**
-<br><br>
-Bug reports and pull requests are welcome on GitHub here.<br>
-This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.<br><br>
+In the terminal that you have open at the 'js_project_backend' folder, run <br>
+rails s <br>
+in your terminal to access and use the Rails API. Find the 'js_project_frontend' folder and open index.html in your browser. Have fun!<br>
+<br>
 
 **License**
 <br><br>
