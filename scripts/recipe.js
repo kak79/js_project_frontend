@@ -9,7 +9,7 @@ class Recipe {
 
   static allRecipes = [];
 
-  static setRecTitle() {
+  static setRecTitle() { 
     recTitle = document.getElementById("rec-title").value;
     recipe.title = recTitle;
   }
