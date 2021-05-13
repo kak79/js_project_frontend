@@ -12,7 +12,7 @@ class Api{
           recipe.ingredients.forEach(
             ingredient => {
               let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement);
-              Ingredient.renderIngredient(r,i);
+              i.renderIngredient(r);
             })
       }
     })   
@@ -56,7 +56,7 @@ class Api{
     .then(recipe => {
       let ingredient = recipe.ingredients[recipe.ingredients.length - 1 ]
           let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement);
-          Ingredient.renderIngredient(recipe,i);
+          i.renderIngredient(recipe);
     })
     let newIngForm = document.getElementById("new-ing-frm");
     newIngForm.reset(); 

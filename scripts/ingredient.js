@@ -19,15 +19,15 @@ class Ingredient{
     recipe2.ingredients_attributes.measurement = ingMeasur;
   }
 
-  static renderIngredient(r,i) {
+  renderIngredient(r) {
     let recipeCard = document.getElementById(r.id);
     let ingredientUl = recipeCard.children[1].children[2];
     let ingredientDiv = document.createElement('div');
     ingredientDiv.innerHTML += `
     <br>
     <ul>
-    <h4>Ingredient Name: ${i.name}</h4>
-    <li>Ingredient Measurement: ${i.measurement}</li>
+    <h4>Ingredient Name: ${this.name}</h4>
+    <li>Ingredient Measurement: ${this.measurement}</li>
     </ul>
     `;
     ingredientUl.appendChild(ingredientDiv);
