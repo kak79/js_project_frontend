@@ -29,7 +29,6 @@ class Recipe {
   }
 
   static setRecID(e) {
-    e.preventDefault();
     recID = parseInt(e.target.value);
     recipe2.id = recID;
   }
