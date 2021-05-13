@@ -1,8 +1,9 @@
 class Recipe { 
-  constructor(id, title, instructions){
+  constructor(id, title, instructions, ingredients){
     this.id = id;
     this.title = title;
-    this.instructions = instructions; 
+    this.instructions = instructions;
+    this.ingredients = ingredients; 
     Recipe.allRecipes.push(this);
     Recipe.appendTheDropdown(this);
   }
@@ -30,6 +31,31 @@ class Recipe {
   static setRecID(e) {
     recID = parseInt(e.target.value);
     recipe2.id = recID;
+  }
+
+  static mostIngs() {
+    let recipes = Recipe.allRecipes.map(recipe => recipe.ingredients.length)
+    Math.max(...recipes)
+    let recMax = Recipe.allRecipes.filter(recipe => recipe.ingredients.length === Math.max(...recipes))
+    let nextStep ;
+    nextStep.addEventListener("change", renderHtmlClear(recMax))
+  }
+
+  renderHtmlClear () {
+    
+    recipeP.innerHTML = ``
+
+  }
+
+  renderHtml (recMax) {
+  
+    recipeP.innerHTML = ``
+    recipeP.innerHTML += `
+    <h1>Hello Chef!</h1>
+    <h3><u>Recipe with Most Ingredients</u></h3>
+    <p>Recipe Title: ${recMax[0].title}</p>
+    <p>Number Ingredients:  ${recMax[0].ingredients.length}</p>
+    `;
   }
 
   renderRecipe() {

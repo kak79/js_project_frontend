@@ -24,6 +24,10 @@ document.addEventListener("DOMContentLoaded" , () => {
 
 const BASE_URL = "http://127.0.0.1:3000/recipes"
 
+let recipeP = document.getElementById("recMax");
+
+let recMax;
+
 let sel = document.getElementById('dropdownMenuButton1');
 
 let recTitle;
