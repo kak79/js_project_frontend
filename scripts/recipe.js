@@ -21,10 +21,9 @@ class Recipe {
 
   static appendTheDropdown(r) {
     let opt = document.createElement("option");
-    opt.innerHTML = r.title;
+    opt.innerHTML = `<p>${r.id}  &nbsp; &nbsp;  ${r.title}<p>`;
     opt.value = r.id;
     sel.appendChild(opt);
-    
     sel.addEventListener("change", (e) => Recipe.setRecID(e));
   }
 
