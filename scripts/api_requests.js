@@ -7,7 +7,7 @@ class Api{
     .then(resp => resp.json())
     .then(recipes => {
       for( const recipe of recipes) {
-        let r = new Recipe(recipe.id, recipe.title, recipe.instructions);
+        let r = new Recipe(recipe.id, recipe.title, recipe.instructions, recipe.ingredients);
         Recipe.renderRecipe(r);
           recipe.ingredients.forEach(
             ingredient => {
@@ -15,6 +15,7 @@ class Api{
               Ingredient.renderIngredient(r,i);
             })
       }
+    Recipe.mostIngs();  
     })   
   }
 
@@ -33,7 +34,7 @@ class Api{
     })
     .then(resp => resp.json())
     .then(recipe => {
-        let r = new Recipe(recipe.id, recipe.title, recipe.instructions);
+        let r = new Recipe(recipe.id, recipe.title, recipe.instructions, recipe.ingredients);
         Recipe.renderRecipe(r);
       })
     let newRecipeForm = document.getElementById("new-recipe-form");
@@ -57,6 +58,7 @@ class Api{
       let ingredient = recipe.ingredients[recipe.ingredients.length - 1 ]
           let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement);
           Ingredient.renderIngredient(recipe,i);
+          Recipe.mostIngs();
     })
     let newIngForm = document.getElementById("new-ing-frm");
     newIngForm.reset(); 
