@@ -3,12 +3,12 @@ class Api{
   //READ -- fetch a recipe and it's ingredients
 
   static fetchRecipes() {
-    fetch(`${BASE_URL}`)
+    fetch(BASE_URL)
     .then(resp => resp.json())
     .then(recipes => {
       for( const recipe of recipes) {
         let r = new Recipe(recipe.id, recipe.title, recipe.instructions);
-        Recipe.renderRecipe(r);
+        r.renderRecipe();
           recipe.ingredients.forEach(
             ingredient => {
               let i = new Ingredient(ingredient.id, ingredient.name, ingredient.measurement);
@@ -23,7 +23,7 @@ class Api{
   static makeNewRecipe(e) {  
     e.preventDefault();
 
-    fetch(`${BASE_URL}`, {
+    fetch(BASE_URL, {
       method: 'POST',
       headers: {
           'Accept': 'application/json',
@@ -34,7 +34,7 @@ class Api{
     .then(resp => resp.json())
     .then(recipe => {
         let r = new Recipe(recipe.id, recipe.title, recipe.instructions);
-        Recipe.renderRecipe(r);
+        r.renderRecipe();
       })
     let newRecipeForm = document.getElementById("new-recipe-form");
     newRecipeForm.reset();

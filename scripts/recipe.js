@@ -33,16 +33,16 @@ class Recipe {
     recipe2.id = recID;
   }
 
-  static renderRecipe(r) {
+  renderRecipe() {
     let recipeDiv = document.getElementById("recipes-container");
     let recipeCard = document.createElement('div');
-    recipeCard.id = `${r.id}`;
+    recipeCard.id = `${this.id}`;
     recipeCard.className = "recipe-card";
 
     recipeCard.innerHTML += `
     <br>
     <ul>
-    <h2>Recipe Title: ${r.title}</h2>
+    <h2>Recipe Title: ${this.title}</h2>
 
     <div class="makeIngForm">
     </div>
@@ -52,7 +52,7 @@ class Recipe {
     
     <br>
 
-    <li>Instructions: ${r.instructions}</li>
+    <li>Instructions: ${this.instructions}</li>
     </ul>
     `;
   
